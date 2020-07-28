@@ -62,7 +62,7 @@
           </div>
           <hr>
 
-          <div class="container p-b-sm">
+          <div class="container p-b-md">
             <h3>Inactive Orders</h3>
             <table class="table table-bordered table-hover">
               <thead>
