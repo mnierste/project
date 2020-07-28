@@ -1,0 +1,320 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.titlepizza {
+    font-size: 50px;
+    text-transform: uppercase;
+    padding:12px, 0;
+
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-t-md {
+    margin-top: 30px;
+}
+.m-t-sm {
+    margin-top: 15px;
+}
+.p-t-md {
+    padding-top: 30px;
+}
+.p-t-sm {
+    padding-top: 15px;
+}
+.p-b-md {
+    padding-bottom: 30px;
+}
+.p-b-sm {
+    padding-bottom: 15px;
+}
+.m-b-md {
+    margin-bottom: 30px;
+}
+.m-b-sm {
+  
+    margin-bottom: 15px;
+}
+
+.m-b-img{
+    margin-bottom: 5px;
+}
+
+.m-t-footer{
+  margin-top:120px;
+}
+
+.p-a-20{
+  padding:20px;
+}
+
+
+.projectpPlaceholder{
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+}
+
+.contactDiv {
+  margin: auto;
+  background:#636b6f;
+  width: 80%;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+
+
+.sectionBackgroundWhite{
+    background-color:#fff;
+}
+
+.jumbotron {
+  /*background: #999;*/
+  max-width: 100%;
+  color: white;
+  padding-bottom: 80px;
+}
+.jumbotron .btn-primary {
+  background: #845ac7;
+  border-color: #845ac7;
+}
+.jumbotron .btn-primary:hover {
+  background: #7646c1;
+}
+.jumbotron p {
+  color: white;
+  max-width: 75%;
+  margin: 1em auto 2em;
+}
+.jumbotron h1 {
+  font-size: 40px;
+}
+.navbar + .jumbotron {
+  margin-top: -20px;
+}
+.jumbotron .lang-logo {
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border: 2px solid white;
+}
+.jumbotron .lang-logo img {
+  max-width: 100%;
+}
+
+.LifeImg{
+  width:  90%;
+  height: 90%;
+  border: 3px solid white;
+}
+
+.parentLife {
+    width: 33%;
+    height: 200px;
+    overflow: hidden;
+    /* Magic */
+    display: flex;
+    align-items: center; /* vertical */
+    justify-content: center; /* horizontal */
+    padding:0px;
+}
+
+.LifeImgLong{
+
+  float: left;
+  width:  365px;
+  height: 200px;
+  border: 3px solid white;
+}
+
+.img-long{
+  max-width:365px;
+}
+
+
+
+.aboutTitle{
+  color:white;
+
+}
+.geoTitle{
+  color:black;
+}
+
+
+/* Style all font awesome icons */
+.fa {
+  padding: 15px;
+  font-size: 45px;
+  width: 80px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.2;
+  color: #333;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* LinkedIn */
+.fa-linkedin {
+  background: #3f729b;
+  color: white;
+}
+
+/* Instagram */
+.fa-instagram {
+
+  color: white;
+}
+
+.instagram{
+  width:80px;
+  height:80px;
+  background: #f09433;
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  }
+
+
+.sectionBackgroundGray{
+  background-color:#999;
+}
+
+.table-background{
+  padding:50px;
+  background:#fff;
+  border-radius:10px;
+}
+
+
+.card-background{
+  padding:40px;
+  background:#fff;
+  border-radius:10px;
+
+}
+
+.weather-background{
+  background-color:#337ab7;
+}
+
+.weather-boarder{
+    border: 3px solid white;
+}
+
+.weather-card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #337ab7;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+.card-body{
+  color:black;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.form-height {
+    height: 85vh;
+}
+
+.carousel-indicators li {
+    box-sizing: content-box;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #337ab7;
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid blue;
+    opacity: .5;
+    transition: opacity .6s ease;
+}
+
+.map-section{
+  margin:auto;
+  max-width: 1400px;
+
+}
