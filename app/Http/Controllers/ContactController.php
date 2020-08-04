@@ -6,10 +6,19 @@ use App\Http\Controllers\Controller;
 
 class ContactController extends Controller{
 
+	/*
+	|--------------------------------------------------------------------------
+	| Contacts Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller is responsible for handling contacts.
+	|
+	*/
+
 	//power the contact page
 	function index(){
 		$contacts = \App\Contacts::all();
-		
+
 		/*
 		echo '<pre>';
 		print_r($contacts);

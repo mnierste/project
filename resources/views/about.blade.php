@@ -95,14 +95,14 @@
               <!-- Add font awesome icons -->
 
                 <div class="col-md-4">
-                  <a href="{{ url('https://www.facebook.com/max.nierste') }}" target="_blank" class="fa fa-facebook"></a>
+                  <a href="{{ url('https://www.facebook.com/max.nierste') }}" target="_blank" class="fa fa1 fa-facebook"></a>
                 </div>
                 <div class="col-md-4">
-                  <a href="{{ url('https://www.linkedin.com/in/max-nierste/')}}" target="_blank"class="fa fa-linkedin"></a>
+                  <a href="{{ url('https://www.linkedin.com/in/max-nierste/')}}" target="_blank"class="fa fa1 fa-linkedin"></a>
                 </div>
 
                 <div class="col-md-4">
-                  <a href="{{ url('https://www.instagram.com/madmax428/')}}" target="_blank" class="fa fa-instagram instagram"></a>
+                  <a href="{{ url('https://www.instagram.com/madmax428/')}}" target="_blank" class="fa fa1 fa-instagram instagram"></a>
                 </div>
               </div>
             </div>

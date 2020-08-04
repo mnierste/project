@@ -26,37 +26,36 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                <div class="card p-a-20">
-                  <table class="table table-bordered table-hover">
-                    <thead>
-                      <th class="text-center">#</th>
-                      <th class="text-center">Name</th>
-                      <th class="text-center">Pizza</th>
-                      <th class="text-center">Crust</th>
-                      <th class="text-center">Details</th>
-                    </thead>
-                    <tbody>
-                    @foreach($pizzas as $pizza)
-                      <tr>
-                        <td>
-                          {{ $loop->index + 1}}
-                        </td>
-                        <td>
-                          {{ $pizza->name }}
-                        </td>
-                        <td>
-                          {{ $pizza->type }}
-                        </td>
-                        <td>
-                          {{ $pizza->base }}
-                        </td>
-                        <td>
-                          <a href="{{ url('/pizzas/' . $pizza->id) }}">Details</a>
-                        </td>
-                      </tr>
-                    @endforeach
-                  </table>
-                </div>
+
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Pizza</th>
+                    <th class="text-center">Crust</th>
+                    <th class="text-center">Details</th>
+                  </thead>
+                  <tbody>
+                  @foreach($pizzas as $pizza)
+                    <tr>
+                      <td>
+                        {{ $loop->index + 1}}
+                      </td>
+                      <td>
+                        {{ $pizza->name }}
+                      </td>
+                      <td>
+                        {{ $pizza->type }}
+                      </td>
+                      <td>
+                        {{ $pizza->base }}
+                      </td>
+                      <td>
+                        <a href="{{ url('/pizzas/' . $pizza->id) }}">Details</a>
+                      </td>
+                    </tr>
+                  @endforeach
+                </table>
               </div>
             </div><!--row-->
           </div>

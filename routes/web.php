@@ -50,7 +50,10 @@ Route::get('/geocode', 'GeocodeController@index');
 Route::get('/geocodeshow', 'GeocodeController@show');
 #Route::post('/geocode', 'GeocodeController@store');
 
-
+//food finder project trader_cdl3starsinsouth
+Route::get('/foodfinder', 'FoodController@index');
+Route::get('/foodfindershow', 'FoodController@show');
+// food finder project end
 
 
 
@@ -64,3 +67,7 @@ Route::get('database-test', function () {
 
 
 Route::get('contacts', 'ContactController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
