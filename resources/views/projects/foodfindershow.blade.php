@@ -16,7 +16,7 @@ geocoding.geo.census.gov
 
 <style>
   #mapid {
-    height: 670px;
+    height: 700px;
   }
 </style>
 
@@ -134,41 +134,75 @@ geocoding.geo.census.gov
 </div><!--end container-->
 
 <div class="map-section p-t-sm p-b-sm" >
-  <div class="row ">
-    <div class="col-md-6">
-      @foreach($Foods['nearby_restaurants'] as $restaurant)
-        <div class="col-lg-12">
-          <div class="card">
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-4 p-a-0" style="margin:scroll;">
+        @php
+          $locations = array();
+        @endphp
 
-            <div class="card-header weather-card-header aboutTitle">
-              <div class="row">
-                <div class="col-md-12 text-center">
-                  <h4>{{ $restaurant['restaurant']['name'] }}</h4>
+
+        @foreach($Foods['nearby_restaurants'] as $restaurant)
+
+
+          @php
+          $locations[$loop->index]['lat']=$restaurant["restaurant"]["location"]["latitude"];
+          $locations[$loop->index]['long']=$restaurant["restaurant"]["location"]["longitude"];
+          @endphp
+
+          <div class="col-sm-12">
+
+            <div class="card">
+              <div class="card-header weather-card-header aboutTitle">
+                <div class="row">
+                  <div class="col-md-9 aboutTitle p-a-0">
+                    <h5 class="m-a-0"><a class="aboutTitle" target="_blank" href="{{ $restaurant['restaurant']['url'] }}">{{ $restaurant['restaurant']['name'] }}</a></h5>
+                    <p class="m-a-0">rating: {{ $restaurant['restaurant']['user_rating']['aggregate_rating'] }} / 5</p>
+
+                  </div>
+
+
+                  <div class="col-md-3">
+                    <img style="max-height:50px;float:right;" src="{{ $restaurant['restaurant']['thumb'] }}" class="d-block" alt="...">
+                  </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-12 text-center">
-                  <img style="max-width:100%;margin:auto;" src="{{ $restaurant['restaurant']['thumb'] }}" class="d-block w-100" alt="...">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6 text-center p-a-0">
+
+                    @if ($restaurant['restaurant']['has_online_delivery'] == 1)
+                      <i class="fa fa-check" style="color:green"></i>
+                    @else
+                      <i class="fa fa-times" style="color:red"></i>
+                    @endif
+                    <span ><small>Delivery</small></span>
+                  </div>
+                  <div class="col-md-6 text-center p-a-0">
+                    @if ($restaurant['restaurant']['has_online_delivery'] == 1)
+                      <i class="fa fa-check" style="color:green"></i>
+                    @else
+                      <i class="fa fa-times" style="color:red"></i>
+                    @endif
+                    <span ><small>Now Delivering</small></span>
+                  </div>
 
                 </div>
               </div>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>url: {{ $restaurant['restaurant']['url'] }}</li>
-                <li>user rating: {{ $restaurant['restaurant']['user_rating']['aggregate_rating'] }}</li>
-                <li>menu: {{ $restaurant['restaurant']['menu_url'] }}</li>
-                <li>moredetails: <a href="#" target="_Blank">Here</a></li>
-              </ul>
-            </div>
+            </div><!-- end card -->
+
           </div>
-        </div>
-      @endforeach
-    </div><!--end col-4-->
-    <div class="col-6">
-      <div id="mapid"></div>
+        @endforeach
+
+
+      </div><!--end col-4-->
+      <div class="col-8 p-a-0">
+        <div id="mapid"></div>
+      </div>
     </div>
   </div>
+  <pre>{{ print_r(json_encode($locations)) }}</pre>
+
 </div>
 
 <!-- Bootstrap core JavaScript
@@ -184,8 +218,11 @@ geocoding.geo.census.gov
 
     var long1 = JSON.parse("{{ json_encode($address['Long']) }}");
     var lat1 = JSON.parse("{{ json_encode($address['Lat']) }}");
+    alert("test");
 
-    var mymap = L.map('mapid').setView([long1, lat1], 18);
+    var locations = {!! json_encode($locations) !!};
+    alert(locations.length);
+    var mymap = L.map('mapid').setView([long1, lat1], 14);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -196,8 +233,12 @@ geocoding.geo.census.gov
     accessToken: 'pk.eyJ1IjoibWF4bmllcnN0ZSIsImEiOiJja2Q0cHF5ZzcwNzFkMnpsb3Q0cjZsamdsIn0.nvmRxyyslDWbsh1jZPEBqA'
     }).addTo(mymap);
 
-    var marker = L.marker([ long1, lat1]).addTo(mymap);
-    marker.bindPopup("{{ $address['street'] }}").openPopup();
+
+    for (var i = 0; i < locations.length; i++) {
+      marker = L.marker([locations[i]['lat'], locations[i]['long']]).addTo(map);
+      marker.bindPopup("info here").openPopup();
+    }
+
 
   </script>
 @endsection

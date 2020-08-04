@@ -7,6 +7,15 @@ use App\Pizza;
 
 
 class PizzaController extends Controller{
+	/*
+	|--------------------------------------------------------------------------
+	| PizzaController
+	|--------------------------------------------------------------------------
+	|
+	| This controller is responsible for handling baisc CRUD app for a pizza place
+	|
+	|
+	*/
 
 	 public function index(){
 		 //get all

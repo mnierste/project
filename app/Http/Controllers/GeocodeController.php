@@ -5,7 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
 
-class GecodeController extends Controller{
+class GeocodeController extends Controller{
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| Geocode Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller is responsible for the small geocode porject for basic tax
+	|info about entered address and weather / 7 day forcast for the location.
+	|
+	*/
 
 	 public function index(){
 

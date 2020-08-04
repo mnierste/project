@@ -67,3 +67,7 @@ Route::get('database-test', function () {
 
 
 Route::get('contacts', 'ContactController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -6,6 +6,21 @@ use App\Http\Controllers\Controller;
 
 
 class FoodController extends Controller{
+	/*
+	|--------------------------------------------------------------------------
+	| FoodController Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller is responsible for handling the project for finding
+	| places to eat near you.
+	|
+	|	INDEX
+	|
+	| SHOW
+	|  **takes address from index page
+	|  **uses geocode api for lat and long2ip
+	|	 **uses Zomato api for list of places to eat
+	*/
 
 	 public function index(){
 
