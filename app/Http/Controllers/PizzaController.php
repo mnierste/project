@@ -16,7 +16,15 @@ class PizzaController extends Controller{
 	|
 	|
 	*/
+	/* USE THIS to protect all routes in this controller instead of
+		->middleware(auth) in routes/web.php
 
+	 public function __construct(){
+
+		 $this->middleware(auth);
+
+	 }
+	*/
 	 public function index(){
 		 //get all
 		 #$pizzas = Pizza::all();

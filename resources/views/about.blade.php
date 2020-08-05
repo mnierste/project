@@ -25,6 +25,27 @@
          with remote Companies / Teams. When I am not programming, you can find me outside
          relaxing with family, working on gardening projects, or playing with our pets!</p>
        </div>
+       <div class="row m-t-md">
+         <div class="col-12 text-center">
+           <i class="devicon-html5-plain-wordmark colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-css3-plain-wordmark colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-sass-original colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-vuejs-plain-wordmark" style="Font-size: 8rem;"></i>
+           <i class="devicon-nodejs-plain colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-bootstrap-plain colored" style="Font-size: 8rem;"></i>
+         </div>
+       </div>
+       <div class="row m-b-md">
+         <div class="col-12 text-center">
+           <i class="devicon-mysql-plain-wordmark colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-php-plain colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-laravel-plain-wordmark colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-atom-original-wordmark colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-git-plain-wordmark colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-heroku-line-wordmark colored" style="Font-size: 8rem;"></i>
+         </div>
+
+       </div>
     </div><!-- galleryrow -->
   </div>
 
@@ -36,13 +57,13 @@
 
           <div class="col-md-6 ">
             <div class="row m-b-sm">
-              <div class="col-md-12">
+              <div class="col-12">
 
                 <h2 class="text-center aboutTitle">Resume</h2>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12" >
+              <div class="col-12" >
 
                 <embed src="{{ asset('/images/MaxNierste_Developer.pdf') }}"
                 width="100%" height="700px" />
@@ -50,58 +71,32 @@
             </div>
           </div>
 
+
           <div class="col-md-6 ">
             <h2 class="text-center aboutTitle"> Life</h2>
 
             <div class="container">
               <div class="row">
-                <div class="col-md-4 parentLife">
-                  <img class="LifeImg" id="1" data-toggle="modal" data-target="#myModal" src='{{ asset('/images/maxproject1.jpeg') }}' alt='image' />
-                </div>
-                <div class="col-md-4 parentLife">
-                  <img class="LifeImg" id="2" data-toggle="modal" data-target="#myModal" src='{{ asset('/images/maxproject2.jpeg') }}' alt='image' />
-                </div>
-                <div class="col-md-4 parentLife">
-                  <img class="LifeImg" id="3" data-toggle="modal" data-target="#myModal" src='{{ asset('/images/maxproject3.jpeg') }}' alt='image' />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4 parentLife">
-                  <img class="LifeImg" id="4" data-toggle="modal" data-target="#myModal" src='{{ asset('/images/maxproject4.jpeg') }}' alt='image' />
-                </div>
-                <div class="col-md-4 parentLife">
-                  <img class="LifeImg" id="5" data-toggle="modal" data-target="#myModal" src='{{ asset('/images/maxproject5.jpeg') }}' alt='image' />
-                </div>
-                <div class="col-md-4 parentLife">
-                  <img class="LifeImg" id="6" data-toggle="modal" data-target="#myModal" src='{{ asset('/images/maxproject6.jpeg') }}' alt='image' />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4 parentLife">
-                  <img class="LifeImg" id="7" data-toggle="modal" data-target="#myModal" src='{{ asset('/images/maxproject7.jpeg') }}' alt='image' />
-                </div>
-                <div class="col-md-4 parentLife">
-                  <img class="LifeImg" id="8" data-toggle="modal" data-target="#myModal" src='{{ asset('/images/maxproject8.jpeg') }}' alt='image' />
-                </div>
-                <div class="col-md-4 parentLife">
-                  <img class="LifeImg" id="9" data-toggle="modal" data-target="#myModal" src='{{ asset('/images/maxproject9.jpeg') }}' alt='image' />
+                <div class="col-12">
+                  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                  <div class="elfsight-app-21cc649a-8f82-477c-a01c-8f5cc4667f0a"></div>
                 </div>
               </div>
 
             </div><!--end col-12-->
 
-            <div class="col-md-12 text-center m-t-md">
+            <div class="col-12 text-center">
               <div class="row">
               <!-- Add font awesome icons -->
 
-                <div class="col-md-4">
+                <div class="col-4">
                   <a href="{{ url('https://www.facebook.com/max.nierste') }}" target="_blank" class="fa fa1 fa-facebook"></a>
                 </div>
-                <div class="col-md-4">
+                <div class="col-4">
                   <a href="{{ url('https://www.linkedin.com/in/max-nierste/')}}" target="_blank"class="fa fa1 fa-linkedin"></a>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-4">
                   <a href="{{ url('https://www.instagram.com/madmax428/')}}" target="_blank" class="fa fa1 fa-instagram instagram"></a>
                 </div>
               </div>
@@ -113,7 +108,7 @@
               <div class="modal-dialog">
                   <div class="modal-content">
                       <div class="modal-body">
-                          <img class="img-responsive" src="" style="width:100%;"/>
+                          <img class="img-fluid" src="" style="width:100%;"/>
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -132,7 +127,7 @@ $(document).ready(function () {
   $('img').on('click', function () {
       var image = $(this).attr('src');
       $('#myModal').on('show.bs.modal', function () {
-          $(".img-responsive").attr("src", image);
+          $(".img-fluid").attr("src", image);
       });
   });
 });
