@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Mail\WelcomeMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,8 +38,8 @@ Route::get('/projects', function () {
 Route::get('/pizzas', 'PizzaController@index');
 Route::get('/pizzas/create', 'PizzaController@create');
 Route::post('/pizzas', 'PizzaController@store');
-Route::get('/pizzas/{id}', 'PizzaController@show');
-Route::put('/pizzas/{id}', 'PizzaController@update');
+Route::get('/pizzas/{id}', 'PizzaController@show')->middleware('auth');
+Route::put('/pizzas/{id}', 'PizzaController@update')->middleware('auth');
 Route::delete('/pizzas/{id}', 'PizzaController@destroy');
 
 //END Pizza project
@@ -66,8 +66,13 @@ Route::get('database-test', function () {
 });
 
 
-Route::get('contacts', 'ContactController@index');
-
-Auth::routes();
+Route::get('contacts', 'ContactController@index')->middleware('auth');
+Route::get('email', function(){
+  return new WelcomeMail();
+});
+Auth::routes([
+  //make register as a false route
+  'register'=>false
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
