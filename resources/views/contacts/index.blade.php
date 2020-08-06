@@ -23,7 +23,8 @@
 
 					<thead >
 						<th class="text-center">#</th>
-						<th class="text-center">Name</th>
+						<th class="text-center">First Name</th>
+            <th class="text-center">Last Name</th>
 						<th class="text-center">Email</th>
 						<th class="text-center">Id</th>
 						<th class="text-center">Edit</th>
@@ -32,10 +33,11 @@
 
 					@foreach ($all_contacts as $contact)
 						<tr>
-							<td> {{ $loop->index +1  }} </td>
-							<td> {{ $contact->Name }} </td>
-							<td> {{ $contact->Email }} </td>
-							<td> {{ $contact->id }} </td>
+							<td>{{ $loop->index +1  }} </td>
+							<td>{{ $contact->FirstName }} </td>
+              <td>{{ $contact->LastName }}</td>
+							<td>{{ $contact->Email }} </td>
+							<td>{{ $contact->Id }} </td>
 							<td>
 								<div class="form-group">
 									<div class="col-md-6">

@@ -36,7 +36,7 @@
 
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-4">
       <a href="{{ url('/pizzas') }}" class="back"><button class="btn btn-primary" >Back to All Pizzas</button></a>
     </div>
@@ -50,7 +50,7 @@
       </form>
     </div>
     <div class="col-md-4">
-      <!--
+
       <form action="{{ url('/pizzas/'.$pizza->id) }}" method="POST">
 
         @csrf
