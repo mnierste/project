@@ -36,11 +36,19 @@ Route::get('/projects', function () {
 
 //Pizza Project (crud App routes)
 //routes in order of priority
+//main page
 Route::get('/pizzas', 'PizzaController@index');
+//order pizza
 Route::get('/pizzas/create', 'PizzaController@create');
+//see orders
+Route::get('/pizzaorders', 'PizzaController@orders')->middleware('auth');
+//save pizza
 Route::post('/pizzas', 'PizzaController@store');
+//show individual pizza
 Route::get('/pizzas/{id}', 'PizzaController@show')->middleware('auth');
+//edit individual pizza
 Route::put('/pizzas/{id}', 'PizzaController@update')->middleware('auth');
+//delete pizza
 Route::delete('/pizzas/{id}', 'PizzaController@destroy');
 
 //END Pizza project
@@ -71,6 +79,7 @@ Route::get('contacts', 'ContactController@index')->middleware('auth');
 Route::get('email', function(){
   return new WelcomeMail();
 });
+
 Auth::routes([
   //make register as a false route
   'register'=>false
