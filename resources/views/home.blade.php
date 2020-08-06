@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <div class="row justify-content-center m-b-md">
+  <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card">
             <div class="card-header text-center">{{ __('Dashboard') }}</div>
@@ -91,10 +91,9 @@
         <div class="card">
           <div class="card-header"> Pizza CRUD Project</div>
           <div class="card-body">
-            <form action="/pizzaorders" method="get">
-              @csrf
-              <button type="submit" class="btn btn-primary btn-block">Manage Pizza Orders</button>
-            </form>
+            <a class="aboutTitle" href="{{ url('/pizzaorders') }}">
+              <button type="button" class="btn btn-primary btn-block">Manage Pizza Orders</button>
+            </a>
 
           </div>
         </div>
@@ -104,10 +103,11 @@
         <div class="card">
           <div class="card-header"> Contacts CRUD</div>
           <div class="card-body">
-            <form action="/contacts" method="get">
-              @csrf
-              <button type="submit" class="btn btn-primary btn-block">Manage Contacts</button>
-            </form>
+
+            <a class="aboutTitle" href="{{ url('/contacts') }}">
+              <button type="button" class="btn btn-primary btn-block">Manage Contacts</button>
+            </a>
+
 
           </div>
         </div>

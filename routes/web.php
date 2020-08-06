@@ -49,7 +49,7 @@ Route::get('/pizzas/{id}', 'PizzaController@show')->middleware('auth');
 //edit individual pizza
 Route::put('/pizzas/{id}', 'PizzaController@update')->middleware('auth');
 //delete pizza
-Route::delete('/pizzas/{id}', 'PizzaController@destroy');
+Route::delete('/pizzas/{id}', 'PizzaController@destroy')->middleware('auth');
 
 //END Pizza project
 
