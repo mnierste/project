@@ -28,7 +28,7 @@ geocoding.geo.census.gov
 
     </div>
     <div class="geoTitle col-md-12 text-center p-b-md">
-      <h1 class="font-weight-bold">Enter Address for Map, Tax, and Weather Information</h1>
+      <h1 class="font-weight-bold">Enter Weather Information</h1>
     </div>
 
     <div class="row">

@@ -23,9 +23,10 @@ Route::get('/about', function () {
 });
 
 //contactme page
-Route::get('/contactme', function () {
-    return view('contactme');
-});
+Route::get('/contactme', 'EmailController@index');
+Route::post('/contactme', 'EmailController@send');
+
+
 
 //projects page
 Route::get('/projects', function () {
