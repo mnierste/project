@@ -39,13 +39,32 @@ class PizzaController extends Controller{
 		 #$pizzas = Pizza::latest()->get();
 
      //get parameter example (use for geocode)
-     return view('/projects/pizzas', [
-       'pizzas' => $pizzas,
-			 'inactivePizzas' =>$inactivePizzas,
-		 ]);
+     return view('/projects/pizzas');
 
 
 	}
+
+	public function orders(){
+		//get all
+		#$pizzas = Pizza::all();
+
+		//orders result by name
+		#$pizzas = Pizza::orderBy('name', 'desc')->get();
+
+		//where col == val
+		$pizzas = Pizza::where('active', '1')->get();
+		$inactivePizzas = Pizza::where('active', 0)->get();
+		//latest if timestamp
+		#$pizzas = Pizza::latest()->get();
+
+		//get parameter example (use for geocode)
+		return view('/projects/pizzas', [
+			'pizzas' => $pizzas,
+			'inactivePizzas' =>$inactivePizzas,
+		]);
+
+
+ }
 
 	public function show($id){
 		$pizza = Pizza::findOrFail($id);

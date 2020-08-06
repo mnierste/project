@@ -42,6 +42,9 @@
     </head>
     <body class="">
       <div class="flex-center position-ref">
+
+        @php
+      /*
           @if (Route::has('login'))
               <div class="top-right links">
                   @auth
@@ -55,6 +58,8 @@
                   @endauth
               </div>
           @endif
+        */
+        @endphp
 
           <div class="content p-t-sm p-b-sm">
               <div class="links">
@@ -62,8 +67,36 @@
                   <a href="{{ url('/about') }}">About</a>
                   <a href="{{ url('/projects') }}">Projects</a>
                   <a href="{{ url('/contactme') }}">Contact</a>
+                  <!-- Right Side Of Navbar -->
+
+                  <!-- Authentication Links -->
+                  @guest
+                    <a class="top-right" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    @if (Route::has('register'))
+                      <a class="top-right" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    @endif
+                  @else
+                      <div class="top-right dropdown links">
+                          <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              {{ Auth::user()->name }} <span class="caret"></span>
+                          </a>
+
+                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{ route('logout') }}"
+                                 onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                  {{ __('Logout') }}
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  @csrf
+                              </form>
+                          </div>
+                      </div>
+                  @endguest
 
               </div>
+
           </div>
       </div>
 

@@ -132,6 +132,9 @@ body {
 .sectionBackgroundWhite {
   background-color: #fff;
 }
+.sectionBackgroundGrey {
+  background-color: #999;
+}
 
 .jumbotron {
   /*background: #999;*/
@@ -348,4 +351,3 @@ body {
   padding: 0px;
   margin: 0px;
 }
-
