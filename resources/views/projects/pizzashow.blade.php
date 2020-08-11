@@ -100,7 +100,7 @@
                     <div class="row">
 
                     @endif
-                      <div class="col-2">
+                      <div class="col-lg-2 col-md-4 col-sm-6 col-12">
 
                         @if(in_array($toppings[$i], $pizza->toppings))
                         <input checked type="checkbox" name="toppings[]" value="{{ $toppings[$i] }}"> {{ $toppings[$i] }}</input>
