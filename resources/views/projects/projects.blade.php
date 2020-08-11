@@ -25,7 +25,9 @@
         <div class="col-md-4">
         <!--project 1-->
           <div class="card1 p-t-sm">
-            <img class="card-img-top projectpPlaceholder responsive" src="{{ asset('/images/maxproject1.jpeg') }}" alt="Card image cap">
+            <div class="projectpPlaceholder">
+              <img class="card-img-top responsive" src="{{ asset('/images/pizzaProjectLogo.png') }}" alt="Card image cap">
+            </div>
             <div class="card-body">
               <h5 class="card-title">Pizza Project</h5>
               <p class="card-text">CRUD app about Pizzas - Log in with the test account to see orders</p>
@@ -37,7 +39,9 @@
         <div class="col-md-4">
         <!-- project 2-->
           <div class="card1 p-t-sm">
-            <img class="card-img-top projectpPlaceholder responsive" src="{{ asset('/images/geolocation.png') }}" alt="Card image cap">
+            <div class="projectpPlaceholder2">
+              <img class="card-img-top responsive" src="{{ asset('/images/foodfinder.png') }}" alt="Card image cap">
+            </div>
             <div class="card-body">
               <h5 class="card-title">Food Finder Project</h5>
               <p class="card-text">API project to provide basic map location, weather, and restaurant information near you</p>
@@ -48,7 +52,9 @@
         <div class="col-md-4">
           <!-- project 3-->
           <div class="card1 p-t-sm">
-            <img class="card-img-top projectpPlaceholder responsive" src="{{ asset('/images/crud.png') }}" alt="Card image cap">
+            <div class="projectpPlaceholder">
+              <img class="card-img-top responsive" src="{{ asset('/images/pizzaproject.png') }}" alt="Card image cap">
+            </div>
             <div class="card-body">
               <h5 class="card-title">Data Project</h5>
               <p class="card-text"> Project to displayed data like a dashboard</p>
