@@ -66,14 +66,6 @@ Route::delete('/pizzas/{id}', 'PizzaController@destroy')->middleware('auth');
 
 //---------------------------------------------------------//
 
-//geocode location project
-Route::get('/geocode', 'GeocodeController@index');
-Route::get('/geocodeshow', 'GeocodeController@show');
-#Route::post('/geocode', 'GeocodeController@store');
-
-
-//---------------------------------------------------------//
-
 //food finder project trader_cdl3starsinsouth
 Route::get('/foodfinder', 'FoodController@index');
 Route::get('/foodfindershow', 'FoodController@show');
