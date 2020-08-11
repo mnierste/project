@@ -26,7 +26,7 @@
         <!--project 1-->
           <div class="card1 p-t-sm">
             <div class="projectpPlaceholder">
-              <img class="card-img-top responsive" src="{{ asset('/images/pizzaProjectLogo.png') }}" alt="Card image cap">
+              <img class="card-img-top responsive" src="{{ asset('/images/PizzaProjectLogo.png') }}" alt="Card image cap">
             </div>
             <div class="card-body">
               <h5 class="card-title">Pizza Project</h5>
