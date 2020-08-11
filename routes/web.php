@@ -12,28 +12,37 @@ use App\Mail\WelcomeMail;
 | contains the "web" middleware group. Now create something great!
 |
 */
+\
+//---------------------------------------------------------//
+
 //welcome page
 Route::get('/', function () {
     return view('welcome');
 });
+
+//---------------------------------------------------------//
 
 //about page
 Route::get('/about', function () {
     return view('about');
 });
 
+
+//---------------------------------------------------------//
+
 //contactme page
 Route::get('/contactme', 'EmailController@index');
 Route::post('/contactme', 'EmailController@send');
 
 
+//---------------------------------------------------------//
 
 //projects page
 Route::get('/projects', function () {
     return view('/projects/projects');
 });
 
-
+//----------------------------------------------//
 //Pizza Project (crud App routes)
 //routes in order of priority
 //main page
@@ -47,22 +56,31 @@ Route::post('/pizzas', 'PizzaController@store');
 //show individual pizza
 Route::get('/pizzas/{id}', 'PizzaController@show')->middleware('auth');
 //edit individual pizza
-Route::put('/pizzas/{id}', 'PizzaController@update')->middleware('auth');
+Route::post('/pizzas/{id}', 'PizzaController@update')->middleware('auth');
+//inactive individual pizza
+Route::put('/pizzas/{id}', 'PizzaController@inactive')->middleware('auth');
 //delete pizza
 Route::delete('/pizzas/{id}', 'PizzaController@destroy')->middleware('auth');
 
 //END Pizza project
 
+//---------------------------------------------------------//
 
 //geocode location project
 Route::get('/geocode', 'GeocodeController@index');
 Route::get('/geocodeshow', 'GeocodeController@show');
 #Route::post('/geocode', 'GeocodeController@store');
 
+
+//---------------------------------------------------------//
+
 //food finder project trader_cdl3starsinsouth
 Route::get('/foodfinder', 'FoodController@index');
 Route::get('/foodfindershow', 'FoodController@show');
 // food finder project end
+
+
+//---------------------------------------------------------//
 
 
 

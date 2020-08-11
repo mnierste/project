@@ -26,21 +26,9 @@ class PizzaController extends Controller{
 	 }
 	*/
 	 public function index(){
-		 //get all
-		 #$pizzas = Pizza::all();
-
-		 //orders result by name
-		 #$pizzas = Pizza::orderBy('name', 'desc')->get();
-
-		 //where col == val
-		 $pizzas = Pizza::where('active', '1')->get();
-		 $inactivePizzas = Pizza::where('active', 0)->get();
-		 //latest if timestamp
-		 #$pizzas = Pizza::latest()->get();
 
      //get parameter example (use for geocode)
      return view('/projects/pizzas');
-
 
 	}
 
@@ -54,6 +42,7 @@ class PizzaController extends Controller{
 		//where col == val
 		$pizzas = Pizza::where('active', '1')->get();
 		$inactivePizzas = Pizza::where('active', 0)->get();
+
 		//latest if timestamp
 		#$pizzas = Pizza::latest()->get();
 
@@ -62,28 +51,43 @@ class PizzaController extends Controller{
 			'pizzas' => $pizzas,
 			'inactivePizzas' =>$inactivePizzas,
 		]);
- }
+  }
 
 	public function show($id){
 		$pizza = Pizza::findOrFail($id);
+
+		$toppings = Array("Ham", "Pepperoni", "Italian Sausage",
+		"Meatball", "Bacon", "Chicken", "Beef", "Pork", "Human", "Buffalo Chicken",
+		"Mushrooms", "Spinach", "Onions", "Red Onions", "Olives", "Bell Peppers", "Jalapeno",
+		"Banana Peppers", "Pineapple", "Sundried Tomatoes", "Roma Tomatoes",
+		"Gouda", "Feta", "Riccota");
+
 		return view('/projects/pizzashow', [
-			'pizza' => $pizza
+			'pizza' => $pizza, 'toppings' => $toppings
 		]);
 	}
 
-
 	public function create(){
-		return view('/projects/pizzacreate');
+
+		$toppings = Array("Ham", "Pepperoni", "Italian Sausage",
+		"Meatball", "Bacon", "Chicken", "Beef", "Pork", "Human", "Buffalo Chicken",
+		"Mushrooms", "Spinach", "Onions", "Red Onions", "Olives", "Bell Peppers", "Jalapeno",
+		"Banana Peppers", "Pineapple", "Sundried Tomatoes", "Roma Tomatoes",
+		"Gouda", "Feta", "Riccota");
+
+		return view('/projects/pizzacreate', ['toppings' => $toppings]);
 	}
 
 	public function store(){
 		//use for contacts crud project
 		$pizza = new Pizza();
 		//input in form
-		$pizza->name = request('name');
-		$pizza->type = request('type');
-		$pizza->base = request('base');
-		$pizza->toppings = request('toppings');
+		$pizza->firstname = request('firstname');
+		$pizza->lastname = request('lastname');
+		$pizza->crust = request('crust');
+		$pizza->sauce = request('sauce');
+		$pizza->cheese = request('cheese');
+		$pizza->toppings =request('toppings');
 
 		$pizza->save();
 
@@ -91,6 +95,29 @@ class PizzaController extends Controller{
 	}
 
 	public function update($id){
+
+		$pizza = Pizza::where('id', $id)->update([
+			'firstname' => request('firstname'),
+			'lastname' => request('lastname'),
+			'crust' => request('crust'),
+			'sauce' => request('sauce'),
+			'cheese' => request('cheese'),
+			'toppings' => request('toppings')
+		]);
+
+		//dd(request('toppings'));
+
+		if($pizza ==1){
+			return redirect('/pizzas/'.$id)->with('mssg', 'Thank you for updating your order');
+
+		}else{
+			return redirect('/pizzas/'.$id)->with('mssg', 'Error updating');
+
+		}
+
+	}
+
+	public function inactive($id){
  		$pizza = Pizza::findOrFail($id);
 		$pizza->active = 0;
 		$pizza->save();
