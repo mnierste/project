@@ -351,3 +351,34 @@ body {
   padding: 0px;
   margin: 0px;
 }
+
+.pizzalogo{
+  max-height:290px;
+}
+
+.pizzalogolittle{
+  max-height:70px;
+}
+
+.pizzalogoline {
+  background:#ed4630; /*#b23324;*/
+  height:90px;
+  margin-top:120px;
+  margin-bottom: 120px;
+  border-top: 5px solid #b23324;
+  border-bottom: 5px solid #b23324;;
+}
+
+.pizzacolor{
+  background-color:#ed4630;
+}
+
+.pizzalogoline span {
+  padding:0px;
+  position:relative;
+  top:-100px;
+  left: 10px
+}
+.align-left{
+  text-align:left;
+}

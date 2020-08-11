@@ -4,9 +4,17 @@
 
 <div class="content p-b-md">
 
-    <div class="titlepizza aboutTitle m-b-sm" style="background-color:red;">
-        Pizza Place Orders
-    </div>
+  <div class="aboutTitle titlepizza m-b-sm pizzacolor">
+      <div class="col-12">
+        <div class="">
+          <img class="pizzalogolittle float-left" src="{{ asset('/images/PizzaProjectLogo.png') }}">
+        </div>
+        <div class="col-12">
+          <div style="text-align:center;padding-right:80px;">Pizza Orders</div>
+        </div>
+      </div>
+
+  </div>
 
 
 
@@ -24,8 +32,7 @@
             <thead>
               <th class="text-center">#</th>
               <th class="text-center">Name</th>
-              <th class="text-center">Pizza</th>
-              <th class="text-center">Crust</th>
+              <th class="text-center">Price</th>
               <th class="text-center">Details</th>
             </thead>
             <tbody>
@@ -35,14 +42,12 @@
                   {{ $loop->index + 1}}
                 </td>
                 <td>
-                  {{ $pizza->name }}
+                  {{ $pizza->firstname }} {{ $pizza->lastname }}
                 </td>
                 <td>
-                  {{ $pizza->type }}
+                  {{ $pizza->price }}
                 </td>
-                <td>
-                  {{ $pizza->base }}
-                </td>
+
                 <td>
                   <a href="{{ url('/pizzas/' . $pizza->id) }}">Details</a>
                 </td>
@@ -60,8 +65,7 @@
         <thead>
           <th class="text-center">#</th>
           <th class="text-center">Name</th>
-          <th class="text-center">Pizza</th>
-          <th class="text-center">Crust</th>
+          <th class="text-center">Price</th>
           <th class="text-center">Details</th>
         </thead>
         <tbody>
@@ -71,14 +75,12 @@
               {{ $loop->index + 1}}
             </td>
             <td>
-              {{ $inactivePizza->name }}
+              {{ $inactivePizza->firstname }} {{ $inactivePizza->lastname  }}
             </td>
             <td>
-              {{ $inactivePizza->type }}
+              {{ $inactivePizza->price }}
             </td>
-            <td>
-              {{ $inactivePizza->base }}
-            </td>
+
             <td>
               <a href="{{ url('/pizzas/' . $inactivePizza->id) }}">Details</a>
             </td>
