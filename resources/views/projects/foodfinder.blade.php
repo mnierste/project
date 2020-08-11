@@ -12,63 +12,51 @@ geocoding.geo.census.gov
 -->
 
 
-    <div class="p-t-md  form-height" >
-      <div class="container ">
+<div class="p-t-md  form-height" style="background-color:#3b8138;">
+  <div class="container" >
 
-        <div class="AboutTitle flex-center title">
-            Food Project
+    <div class="aboutTitle flex-center title">
+     Food Finder Project
 
-        </div>
-        <div class="geoTitle col-md-12 text-center p-b-md">
-          <h1 class="font-weight-bold">Enter info for Resturants near you</h1>
-        </div>
+    </div>
+    <div class="aboutTitle col-md-12 text-center p-b-md">
+      <h1 class="font-weight-bold">  <i class="fa fa-cutlery"></i><span> Find Resturants Near You</span> <i class="fa fa-cutlery"></i> </h1>
+    </div>
 
-        <div class="row">
-          <div class="col-md-12">
-            <form class="form-signin" action="{{ url('/foodfindershow') }}" method="GET">
-              @csrf
-              <div class="form-group">
-                  <div class="row">
-                    <div class="col-md-12 ">
-                      <input type="text" name="street" id="street" class="form-control" placeholder="Street">
-                    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-signin" action="{{ url('/foodfindershow') }}" method="GET">
+          @csrf
+          <div class="form-group">
+              <div class="row">
+                <div class="col-md-12 ">
+                  <input type="text" name="street" id="street" class="form-control" value="20 W 34th St">
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="row">
-                  <div class="col-md-5 ">
-                    <input type="hidden" name="country" id="countryId" value="US"/>
-                    <label for="city" class="sr-only">City</label>
-                    <select name="city" class="cities order-alpha form-control" id="cityId">
-                        <option value="">Select City</option>
-                    </select>
-                  </div>
-                  <div class="col-md-3 ">
-                    <label for="state" class="sr-only">State</label>
-                    <select name="state" class="states order-alpha form-control" id="stateId" >
-                      <option value="">Select State</option>
-                    </select>
-                  </div>
-                  <div class="col-md-4 ">
-                    <label for="zip" class="sr-only">Zip</label>
-                    <input type="text" name="zip" id="zip" class="form-control" placeholder="Zip">
-                  </div>
-                </div><!-- end row -->
-
-              </div>
-              <div class="form-group">
-                <div class="row">
-                    <div class="col-md-12">
-                      <button class="btn btn-block btn-lg btn-primary float-right" type="submit">Search</button>
-                    </div>
-                </div>
-              </div>
-
-            </form>
+            </div>
           </div>
-        </div><!-- row -->
-      </div> <!-- container -->
-    </div> <!-- cover image -->
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col-md-4 ">
+                <label for="zip" class="sr-only">Zip</label>
+                <input type="text" name="zip" id="zip" class="form-control" value="10001">
+              </div>
+            </div><!-- end row -->
+
+          </div>
+          <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-block btn-lg btn-primary float-right" type="submit">Search</button>
+                </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div><!-- row -->
+  </div> <!-- container -->
+</div> <!-- cover image -->
 
 
     <!-- Bootstrap core JavaScript

@@ -37,9 +37,10 @@ class FoodController extends Controller{
 
 		 $address = [];
 		 $address['street']= request('street');
-		 $address['city'] = request('city');
-		 $address['state'] = request('state');
+		 //$address['city'] = request('city');
+		 //$address['state'] = request('state');
 		 $address['zip'] = request('zip');
+
 		 $data = [];
 
      foreach($address as $key => $val){

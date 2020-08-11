@@ -20,47 +20,32 @@ geocoding.geo.census.gov
   }
 </style>
 
-<div class="mapImage p-t-md p-b-md " >
-  <div class="container ">
+<div class="p-t-md p-b-md " style="background-color:#3b8138;" >
+  <div class="container" >
 
-    <div class="geoTitle flex-center title">
-        Food Finder
+    <div class="aboutTitle flex-center title">
+     Food Finder Project
 
     </div>
-    <div class="geoTitle col-md-12 text-center p-b-md">
-      <h1 class="font-weight-bold">Enter Address for Map, Tax, and Weather Information</h1>
+    <div class="aboutTitle col-md-12 text-center p-b-md">
+      <h1 class="font-weight-bold">  <i class="fa fa-cutlery"></i><span> Find Resturants Near You</span> <i class="fa fa-cutlery"></i> </h1>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-
         <form class="form-signin" action="{{ url('/foodfindershow') }}" method="GET">
           @csrf
           <div class="form-group">
-              <div class="row">
-                <div class="col-md-12 ">
-                  <input type="text" name="street" id="street" class="form-control" placeholder="Street" value="{{ $address['street']}}">
-                </div>
-            </div>
-          </div>
-          <div class="form-group">
             <div class="row">
-              <div class="col-md-5 ">
-                <input type="hidden" name="country" id="countryId" value="US"/>
-                <label for="city" class="sr-only">City</label>
-                <select name="city" class="cities order-alpha form-control" id="cityId" value="{{ $address['city'] }} ">
-                    <option value="">Select City</option>
-                </select>
+              <div class="col-md-8 ">
+                <input type="text" name="street" id="street" class="form-control" value="{{ $address['street'] }}">
               </div>
-              <div class="col-md-3 ">
-                <label for="state" class="sr-only">State</label>
-                <select name="state" class="states order-alpha form-control" id="stateId" value=" {{ $address['state']}}">
-                  <option value="">Select State</option>
-                </select>
-              </div>
+
+
+
               <div class="col-md-4 ">
                 <label for="zip" class="sr-only">Zip</label>
-                <input type="text" name="zip" id="zip" class="form-control" placeholder="Zip" value="{{ $address['zip'] }}">
+                <input type="text" name="zip" id="zip" class="form-control" value="{{ $address['zip'] }}">
               </div>
             </div><!-- end row -->
 
@@ -68,7 +53,7 @@ geocoding.geo.census.gov
           <div class="form-group">
             <div class="row">
                 <div class="col-md-12">
-                  <button class="btn btn-block btn-lg btn-primary float-right" type="submit">Search for Food!</button>
+                  <button class="btn btn-block btn-lg btn-primary float-right" type="submit">Search</button>
                 </div>
             </div>
           </div>
@@ -78,6 +63,8 @@ geocoding.geo.census.gov
     </div><!-- row -->
   </div> <!-- container -->
 </div> <!-- cover image -->
+
+
 
 
 <div class="row">
@@ -94,13 +81,16 @@ geocoding.geo.census.gov
 
 
     $Foods = JSON_decode($zomato->getBody(), true);
+#<p><pre> {{print_r($Foods)}} </pre></p>
 
     @endphp
-    <p><pre> {{print_r($Foods)}} </pre></p>
 
   </div>
 </div>
+
+
 <div class="container">
+  <!--
   <div class="row">
     <div class="col-md-12">
       <div class="card">
@@ -118,8 +108,10 @@ geocoding.geo.census.gov
           </ul>
         </div>
       </div>
-    </div><!--end col-12-->
+    </div><!--end col-12
   </div>
+
+-->
   <div clas="row">
     <div class="col-md-12">
 
@@ -148,6 +140,9 @@ geocoding.geo.census.gov
           @php
           $locations[$loop->index]['lat']=$restaurant["restaurant"]["location"]["latitude"];
           $locations[$loop->index]['long']=$restaurant["restaurant"]["location"]["longitude"];
+          $locations[$loop->index]['address']=$restaurant["restaurant"]["location"]["address"];
+          $locations[$loop->index]['type']=$restaurant["restaurant"]["cuisines"];
+          $locations[$loop->index]['menu']=$restaurant["restaurant"]["menu_url"];
           @endphp
 
           <div class="col-sm-12">
@@ -157,38 +152,21 @@ geocoding.geo.census.gov
                 <div class="row">
                   <div class="col-md-9 aboutTitle p-a-0">
                     <h5 class="m-a-0"><a class="aboutTitle" target="_blank" href="{{ $restaurant['restaurant']['url'] }}">{{ $restaurant['restaurant']['name'] }}</a></h5>
-                    <p class="m-a-0">rating: {{ $restaurant['restaurant']['user_rating']['aggregate_rating'] }} / 5</p>
+                    <p class="m-a-0"> Rating: {{ $restaurant['restaurant']['user_rating']['aggregate_rating'] }} / 5 (reviews: {{ $restaurant['restaurant']['user_rating']['votes'] }})</p>
 
                   </div>
 
 
                   <div class="col-md-3">
-                    <img style="max-height:50px;float:right;" src="{{ $restaurant['restaurant']['thumb'] }}" class="d-block" alt="...">
+                    @if(!empty($restaurant['restaurant']['thumb']))
+                    <img style="max-width:50px;float:right;" src="{{ $restaurant['restaurant']['thumb'] }}" class="d-block" alt="...">
+                    @else
+                    <img style="max-width:50px;float:right;" src="{{ asset('/images/placeholder.png') }}" class="d-block" alt="...">
+                    @endif
                   </div>
                 </div>
               </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6 text-center p-a-0">
 
-                    @if ($restaurant['restaurant']['has_online_delivery'] == 1)
-                      <i class="fa fa-check" style="color:green"></i>
-                    @else
-                      <i class="fa fa-times" style="color:red"></i>
-                    @endif
-                    <span ><small>Delivery</small></span>
-                  </div>
-                  <div class="col-md-6 text-center p-a-0">
-                    @if ($restaurant['restaurant']['has_online_delivery'] == 1)
-                      <i class="fa fa-check" style="color:green"></i>
-                    @else
-                      <i class="fa fa-times" style="color:red"></i>
-                    @endif
-                    <span ><small>Now Delivering</small></span>
-                  </div>
-
-                </div>
-              </div>
             </div><!-- end card -->
 
           </div>
@@ -201,7 +179,6 @@ geocoding.geo.census.gov
       </div>
     </div>
   </div>
-  <pre>{{ print_r(json_encode($locations)) }}</pre>
 
 </div>
 
@@ -211,18 +188,18 @@ geocoding.geo.census.gov
 
 @endsection
 @section('scripts')
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="//geodata.solutions/includes/statecity.js"></script>
+
 
   <script>
 
-    var long1 = JSON.parse("{{ json_encode($address['Long']) }}");
-    var lat1 = JSON.parse("{{ json_encode($address['Lat']) }}");
-    alert("test");
+
+    var long1 = {{ $Foods['location']['longitude'] }};
+    var lat1 = {{ $Foods['location']['latitude'] }};
+
 
     var locations = {!! json_encode($locations) !!};
-    alert(locations.length);
-    var mymap = L.map('mapid').setView([long1, lat1], 14);
+
+    var mymap = L.map('mapid').setView([lat1, long1], 14);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -235,8 +212,8 @@ geocoding.geo.census.gov
 
 
     for (var i = 0; i < locations.length; i++) {
-      marker = L.marker([locations[i]['lat'], locations[i]['long']]).addTo(map);
-      marker.bindPopup("info here").openPopup();
+      marker = L.marker([locations[i]['lat'], locations[i]['long']]).addTo(mymap);
+      marker.bindPopup("pop up info here").openPopup();
     }
 
 
