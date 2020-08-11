@@ -112,14 +112,6 @@ body {
   margin: 5px;
 }
 
-.projectpPlaceholder {
-  height: 200px;
-  width: 200px;
-  margin: auto;
-  border: 2px solid #337ab7;
-  border-radius: 50%;
-}
-
 .contactDiv {
   margin: auto;
   background: #636b6f;
@@ -381,4 +373,48 @@ body {
 }
 .align-left{
   text-align:left;
+}
+
+
+.projectpPlaceholder {
+  height: 200px;
+  width:200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  overflow:hidden;
+  background-color:#999;
+}
+
+.projectpPlaceholder img {
+  position: absolute;
+  display: block;
+  height: 180px;
+  width:auto;
+  /*margin-left: -90px;*/
+  margin-top: 8px;
+
+}
+
+.projectpPlaceholder2 {
+  height: 200px;
+  width:200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  overflow:hidden;
+  background-color:#999;
+}
+.projectpPlaceholder2 img {
+  position: absolute;
+  display: block;
+  height: 200px;
+  width:auto;
+  /*margin-left: -90px;
+  margin-top: 30px;*/
+
 }
