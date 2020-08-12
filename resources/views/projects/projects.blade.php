@@ -44,7 +44,7 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">Food Finder Project</h5>
-              <p class="card-text">API project to provide basic map location, weather, and restaurant information near you</p>
+              <p class="card-text">API project to provide basic map & restaurant information near you</p>
               <a href="{{ url('/foodfinder') }}" class="btn btn-primary">Food Finder</a>
             </div>
           </div>
@@ -58,7 +58,7 @@
             <div class="card-body">
               <h5 class="card-title">Data Project</h5>
               <p class="card-text"> Project to displayed data like a dashboard</p>
-              <a href="{{ url('/geocode') }}" class="btn btn-primary">Data Project</a>
+              <a href="{{ url('/dataproject') }}" class="btn btn-primary">Data Project</a>
             </div>
           </div>
         </div>

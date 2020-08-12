@@ -418,3 +418,10 @@ body {
   margin-top: 30px;*/
 
 }
+
+#totalChart{
+  height:250px !important;
+}
+#monthAvgChart{
+  height:250px !important;
+}

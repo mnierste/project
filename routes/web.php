@@ -74,6 +74,13 @@ Route::get('/foodfindershow', 'FoodController@show');
 
 //---------------------------------------------------------//
 
+//graph data finder project trader_cdl3starsinsouth
+Route::get('/dataproject', 'DataController@index');
+
+// graph data project end
+
+//---------------------------------------------------------//
+
 
 
 // refers to the url /database-test
