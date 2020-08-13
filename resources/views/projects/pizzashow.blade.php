@@ -1,4 +1,7 @@
 @extends('layouts.layouts')
+
+@section('title', 'Mnierste Pizza Details')
+
 @section('content')
 
 <div class="aboutTitle titlepizza m-b-sm pizzacolor">

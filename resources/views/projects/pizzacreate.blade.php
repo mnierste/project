@@ -1,4 +1,7 @@
 @extends('layouts.layouts')
+
+@section('title', 'Mnierste Create Pizza')
+
 @section('content')
 
 
