@@ -1,3 +1,6 @@
+@php
+  if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on'){ $protocol = "https://".$_SERVER['HTTP_HOST']; } else{ $protocol='http://'.$_SERVER['HTTP_HOST']; }
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -60,7 +63,7 @@
                 <a href="{{ url('/projects') }}">Projects</a>
                 <a href="{{ url('/contactme') }}">Contact</a>
               </div>
-              
+
           </div>
 
       </div>
