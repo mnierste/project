@@ -1,5 +1,7 @@
 @extends('layouts.layouts')
 
+@section('title', 'Mnierste FoodFinder Project')
+
 @section('css')
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
@@ -128,7 +130,7 @@ geocoding.geo.census.gov
 <div class="map-section p-t-sm p-b-sm" >
   <div class="container">
     <div class="row ">
-      <div class="col-md-4 p-a-0" style="margin:scroll;">
+      <div class="col-md-4 col-sm-12 p-a-0" style="margin:scroll;">
         @php
           $locations = array();
         @endphp
@@ -174,7 +176,7 @@ geocoding.geo.census.gov
 
 
       </div><!--end col-4-->
-      <div class="col-8 p-a-0">
+      <div class="col-md-8 col-sm-12 p-a-0">
         <div id="mapid"></div>
       </div>
     </div>

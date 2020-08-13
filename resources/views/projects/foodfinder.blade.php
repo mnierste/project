@@ -1,5 +1,8 @@
 @extends('layouts.layouts')
 
+@section('title', 'MNierste Food Finder Project')
+
+
 @section('css')
 
 
@@ -29,7 +32,8 @@ geocoding.geo.census.gov
           @csrf
           <div class="form-group">
               <div class="row">
-                <div class="col-md-12 ">
+                <div class="col-12 ">
+                  <label for="street" class="aboutTitle">Street</label>
                   <input type="text" name="street" id="street" class="form-control" value="20 W 34th St">
                 </div>
             </div>
@@ -37,8 +41,8 @@ geocoding.geo.census.gov
           <div class="form-group">
             <div class="row">
 
-              <div class="col-md-4 ">
-                <label for="zip" class="sr-only">Zip</label>
+              <div class="col-12 ">
+                <label for="zip" class="aboutTitle">Zip</label>
                 <input type="text" name="zip" id="zip" class="form-control" value="10001">
               </div>
             </div><!-- end row -->

@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts/layouts')
 
 @section('content')
-<div class="container">
-  <div class="row justify-content-center" style="margin-bottom:20px;">
+<div class="coverImage">
+  <div class="row justify-content-center p-t-md m-b-md" >
       <div class="col-md-8">
           <div class="card">
-              <div class="card-header">{{ __('Login') }}</div>
+              <div class="card-header login-header">{{ __('Login') }}</div>
 
               <div class="card-body">
                   <form method="POST" action="{{ route('login') }}">
@@ -71,11 +71,11 @@
       </div>
   </div><!--end row-->
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-center p-b-md">
     <div class="col-md-8">
 
       <div class="card">
-          <div class="card-header">{{ __('Demo Data') }}</div>
+          <div class="card-header login-header">{{ __('Demo Data') }}</div>
           <div class="card-body">
             <div class="col-12 text-center">
               <p>Demo account: Test@testing.com</p>

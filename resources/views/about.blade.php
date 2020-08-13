@@ -1,15 +1,16 @@
-
 @extends('layouts/layouts')
+
+@section('title', 'Max Nierste, About Me')
 @section('content')
 
 
   <div class="jumbotron text-center coverImage">
     <div class="container">
-      <a href="/" class="lang-logo">
+      <a href="#aboutme" class="lang-logo">
         <img src="{{ asset('/images/Max.jpg') }}">
       </a>
-      <h1>Welcome to my Website</h1>
-      <h3>My Name is Max Nierste and I'm a full-stack developer</h3>
+      <h1 style="text-shadow: 2px 2px black;">Welcome to my Website</h1>
+      <h3 style="text-shadow: 2px 2px black;">My Name is Max Nierste and I'm a full-stack developer</h3>
 
     </div>
   </div>
@@ -19,7 +20,7 @@
     <div class="galleryrow">
 
       <div class="col-md-12 text-center">
-        <h3>About Me</h3>
+        <h3 id="aboutme">About Me</h3>
 
         <p>I'm a Full-stack developer based in the United States. I have alot of experience
          with remote Companies / Teams. When I am not programming, you can find me outside
@@ -30,9 +31,10 @@
            <i class="devicon-html5-plain-wordmark colored" style="Font-size: 8rem;"></i>
            <i class="devicon-css3-plain-wordmark colored" style="Font-size: 8rem;"></i>
            <i class="devicon-sass-original colored" style="Font-size: 8rem;"></i>
+           <i class="devicon-bootstrap-plain colored" style="Font-size: 8rem;"></i>
            <i class="devicon-vuejs-plain-wordmark" style="Font-size: 8rem;"></i>
            <i class="devicon-nodejs-plain colored" style="Font-size: 8rem;"></i>
-           <i class="devicon-bootstrap-plain colored" style="Font-size: 8rem;"></i>
+
          </div>
        </div>
        <div class="row m-b-md">
@@ -50,8 +52,8 @@
   </div>
 
     <!-- resume -->
-  <div class="section" style="background:#999;">
-    <div class="container p-t-md" >
+  <div class="section sectionBackgroundGray p-t-md">
+    <div class="container" >
       <div class="section m-b-md">
         <div class="row">
 
@@ -89,15 +91,18 @@
               <div class="row">
               <!-- Add font awesome icons -->
 
-                <div class="col-4">
+                <div class="col-3">
                   <a href="{{ url('https://www.facebook.com/max.nierste') }}" target="_blank" class="fa fa1 fa-facebook"></a>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                   <a href="{{ url('https://www.linkedin.com/in/max-nierste/')}}" target="_blank"class="fa fa1 fa-linkedin"></a>
                 </div>
 
-                <div class="col-4">
+                <div class="col-3">
                   <a href="{{ url('https://www.instagram.com/madmax428/')}}" target="_blank" class="fa fa1 fa-instagram instagram"></a>
+                </div>
+                <div class="col-3">
+                  <a href="{{ url('https://github.com/mnierste/')}}" target="_blank" class="fa fa1 fa-github github"></a>
                 </div>
               </div>
             </div>
