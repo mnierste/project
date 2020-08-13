@@ -124,9 +124,9 @@ body {
 .sectionBackgroundWhite {
   background-color: #fff;
 }
-.sectionBackgroundGrey {
-  background-color: #999;
-}
+
+
+
 
 .jumbotron {
   /*background: #999;*/
@@ -178,25 +178,6 @@ body {
   border: 3px solid white;
 }
 
-.parentLife {
-  width: 33%;
-  height: 200px;
-  overflow: hidden;
-  /* Magic */
-  display: flex;
-  align-items: center;
-  /* vertical */
-  justify-content: center;
-  /* horizontal */
-  padding: 0px;
-}
-
-.LifeImgLong {
-  float: left;
-  width: 365px;
-  height: 200px;
-  border: 3px solid white;
-}
 
 .img-long {
   max-width: 365px;
@@ -251,11 +232,22 @@ body {
 }
 
 .instagram {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   background: #f09433;
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#f09433", endColorstr="#bc1888",GradientType=1 );
+}
+
+/*Github*/
+.fa-github {
+  color: white;
+}
+
+.github {
+  width: 75px;
+  height: 75px;
+  background: black;
 }
 
 .sectionBackgroundGray {
@@ -287,6 +279,13 @@ body {
   margin-bottom: 0;
   background-color: #3b8138;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+
+.login-header{
+  background-color:#333;
+  color:white;
+  font-size:20px;
 }
 
 .card {
@@ -419,9 +418,66 @@ body {
 
 }
 
+.projectpPlaceholder3 {
+  height: 200px;
+  width:200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  overflow:hidden;
+  background-color:#5cd4d0;
+}
+
+.projectpPlaceholder3 img {
+  position: absolute;
+  display: block;
+  height: 180px;
+  width:auto;
+  /*margin-left: -90px;*/
+  margin-top: 8px;
+
+}
+
 #totalChart{
   height:250px !important;
 }
 #monthAvgChart{
   height:250px !important;
+}
+
+.datacolor{
+  color:#5cd4d0;
+}
+
+.datacolorBackground{
+  background-color:#5cd4d0;
+}
+
+
+/* change navbar background */
+nav.navbar {
+  background: transparent;
+}
+
+/* change navbar-brand color on hover */
+.navbar a.navbar-brand:hover {
+  color: black;
+}
+/*  change navbar li colors, also active one but not disabled one */
+.navbar ul.navbar-nav li.nav-item a.nav-link {
+  color: #666;
+  font-weight: 600;
+  font-size: 20px;
+}
+/* change hamburger button border color */
+button.navbar-toggler.navbar-toggler-right {
+  border-color: black;
+}
+/* change navbar background on collapse */
+@media (max-width: 768px) {
+  nav.navbar {
+    background: white;
+  }
 }

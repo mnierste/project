@@ -29,7 +29,6 @@
          <div class="alert alert-success alert-block">
           <button type="button" class="close" data-dismiss="alert">×</button>
             <p class="mssg">{{ session('mssg') }}</p>
-
          </div>
        @endif
     </div><!--end row-->
@@ -37,51 +36,48 @@
 
     <div class="row">
       <div class="col-md-12">
-
-
-
-      <form action="{{ url('contactme') }}" method="post">
-        @csrf
-          <div class="col-md-12 p-t-md p-b-md">
-            <div class="contactDiv">
-              <div class="row p-t-sm ">
-                <div class="col-md-6">
-                  <div class="form-group">
-                      <label class="aboutTitle" for="Email">Email</label>
-                      <input type="email" class="form-control" id="Email"  name="email" placeholder="Enter email">
+        <form action="{{ url('contactme') }}" method="post">
+          @csrf
+            <div class="col-md-12 p-t-md p-b-md">
+              <div class="contactDiv">
+                <div class="row p-t-sm ">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="aboutTitle" for="Email">Email</label>
+                        <input type="email" class="form-control" id="Email"  name="email" placeholder="Enter email">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label class="aboutTitle" for="Name">Name</label>
+                        <input class="form-control" id="Name" name="name" placeholder="Name">
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                      <label class="aboutTitle" for="Name">Name</label>
-                      <input class="form-control" id="Name" name="name" placeholder="Name">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
+                <div class="row">
 
-                <div class="col-md-12">
-                  <div class="form-group">
-                      <label class="aboutTitle"  for="Subject">Subject</label>
-                      <input class="form-control" id="Subject" name="subject" placeholder="Subject">
+                  <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label class="aboutTitle"  for="Subject">Subject</label>
+                        <input class="form-control" id="Subject" name="subject" placeholder="Subject">
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-12 p-b-sm">
-                  <div class="form-group">
-                      <label class="aboutTitle"  for="Message">Message</label>
-                      <textarea maxlength="250" class="form-control" id="Message" name="message" rows="5"></textarea>
-                      <span style="color:white;" id="chars">250 Characters Remaining</span>
+                  <div class="col-md-12 col-sm-12 p-b-sm">
+                    <div class="form-group">
+                        <label class="aboutTitle"  for="Message">Message</label>
+                        <textarea maxlength="250" class="form-control" id="Message" name="message" rows="5"></textarea>
+                        <span style="color:white;" id="chars">250 Characters Remaining</span>
 
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-12 p-b-sm">
-                  <button type="submit" class="btn btn-success btn-block">Submit</button>
+                  <div class="col-md-12 col-sm-12 p-b-sm">
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
       </div><!-- row -->
     </div> <!-- container -->
   </div> <!-- cover image -->

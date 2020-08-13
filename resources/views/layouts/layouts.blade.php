@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Max Nierste</title>
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -32,75 +32,75 @@
             background-position: center center;
         }
 
-        .mapImage{
-            background-image:url('{{ asset('/images/map.jpeg') }}');
-            background-size:     cover;
-            background-repeat:   no-repeat;
-            background-position: center center;
-        }
+
         </style>
     </head>
     <body class="">
+
       <div class="flex-center position-ref">
 
-        @php
-      /*
-          @if (Route::has('login'))
-              <div class="top-right links">
-                  @auth
-                      <a href="{{ url('/home') }}">Dashboard</a>
-                  @else
-                      <a href="{{ route('login') }}">Login</a>
+          <nav class="navbar navbar-expand-md navbar-light ">
 
-                      @if (Route::has('register'))
-                          <a href="{{ route('register') }}">Register</a>
-                      @endif
-                  @endauth
-              </div>
-          @endif
-        */
-        @endphp
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler float-left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-          <div class="content p-t-sm p-b-sm">
-              <div class="links">
-                  <a href="{{ url('/') }}">Home</a>
-                  <a href="{{ url('/about') }}">About</a>
-                  <a href="{{ url('/projects') }}">Projects</a>
-                  <a href="{{ url('/contactme') }}">Contact</a>
-                  <!-- Right Side Of Navbar -->
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
 
-                  <!-- Authentication Links -->
-                  @guest
-                    <a class="top-right" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    @if (Route::has('register'))
-                      <a class="top-right" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    @endif
-                  @else
-                      <div class="top-right dropdown links">
-                          <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                              {{ Auth::user()->name }} <span class="caret"></span>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/projects') }}">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/contactme') }}">Contact</a>
+                </li>
+                <!-- Authentication Links -->
+                @guest
+                  <li class="nav-item">
+                    <a class="float-right nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  </li>
+                  @if (Route::has('register'))
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                  @endif
+                @else
+                    <li class="nav-item">
+                      <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          {{ Auth::user()->name }} <span class="caret"></span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ url('/home') }}" >Dashboard</a>
+                          <a class="dropdown-item" href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                              {{ __('Logout') }}
                           </a>
 
-                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="{{ url('/home') }}" >Dashboard</a>
-                              <a class="dropdown-item" href="{{ route('logout') }}"
-                                 onclick="event.preventDefault();
-                                               document.getElementById('logout-form').submit();">
-                                  {{ __('Logout') }}
-                              </a>
-
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                  @csrf
-                              </form>
-
-
-                          </div>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                          </form>
                       </div>
-                  @endguest
+                    </li>
 
-              </div>
+                @endguest
+              </ul>
 
-          </div>
+            </div>
+          </nav>
+
+
       </div>
 
 

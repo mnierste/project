@@ -1,5 +1,7 @@
 @extends('layouts.layouts')
 
+@section('title', 'Mnierste Data Project')
+
 @section('css')
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
@@ -8,12 +10,14 @@
 
 
 @section('content')
+
+
+
 @php
 
-
-#####################
-
+// fake 2019 sales data using Mockaroo
 $graph_data2019 = json_decode(file_get_contents(asset('/MOCK_DATA2019.json')), true);
+
 
 $totalSalesMonths2019 = Array();
 
@@ -32,22 +36,27 @@ $totalSalesMonths2019['Total']['Dec']=0;
 $totalSalesMonths2019['Total']['Error']=0;
 $totalSalesMonths2019['Total']['Total'] = 0;
 
+//grab new customers
 $newcustomers = Array();
 $newcustomers['2019'] = 0;
 
-
+//grab total sales amount (would be easier coming from a database)
 for($i=0;$i< count($graph_data2019);$i++){
 
-  $sale = str_replace("$", "", $graph_data2019[$i]['sale_amount']);
 
-  $totalSalesMonths2019['Total']['Total'] += $sale;
-
-  $date = explode("/", $graph_data2019[$i]['date_of_sale']);
-
-
+  //new customer added to total
   if($graph_data2019[$i]['is_new_customer'] ==1){
     $newcustomers['2019'] += 1;
   }
+
+  //take out $ so we can add totals
+  $sale = str_replace("$", "", $graph_data2019[$i]['sale_amount']);
+
+  //add to total
+  $totalSalesMonths2019['Total']['Total'] += $sale;
+
+  //find which sales belongs to which month for graphs
+  $date = explode("/", $graph_data2019[$i]['date_of_sale']);
 
   switch ($date[0]) {
     case 1:
@@ -129,15 +138,19 @@ $newcustomers['2020'] = 0;
 
 for($i=0;$i< count($graph_data2020);$i++){
 
-  $sale = str_replace("$", "", $graph_data2020[$i]['sale_amount']);
-
-  $totalSalesMonths2020['Total']['Total'] += $sale;
-
-  $date = explode("/", $graph_data2020[$i]['date_of_sale']);
-
+  //add new customer to 2020 total
   if($graph_data2020[$i]['is_new_customer'] ==1){
     $newcustomers['2020'] += 1;
   }
+
+  //get data ready to add to totals
+  $sale = str_replace("$", "", $graph_data2020[$i]['sale_amount']);
+
+  //add to 2020 total
+  $totalSalesMonths2020['Total']['Total'] += $sale;
+
+  //find which sales belongs to which month for graphs
+  $date = explode("/", $graph_data2020[$i]['date_of_sale']);
 
   switch ($date[0]) {
     case 1:
@@ -194,19 +207,20 @@ for($i=0;$i< count($graph_data2020);$i++){
     }
 }
 
-
+//merge years together for table data
 $table_data = array_merge($graph_data2019, $graph_data2020);
 
 @endphp
 
-<div class="content p-b-md">
+
+<div class="content p-b-md datacolorBackground p-t-md">
   <div class="container">
-    <div class="row">
+    <div class="row ">
       <div class="col-md-7 col-sm-12">
 
           <div class="card p-a-20 m-b-sm">
-            <div class="card-header">
-              Total Monthly Sales
+            <div class="card-header datacolorBackground aboutTitle">
+              <h5>Total Monthly Sales</h5>
             </div>
             <div class="card-body">
               <canvas id="totalChart" width="200" height="200"></canvas>
@@ -216,8 +230,8 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
 
 
           <div class="card p-a-20">
-            <div class="card-header">
-              Monthly Avg Sales
+            <div class="card-header datacolorBackground aboutTitle">
+              <h5>Monthly Avg Sales</h5>
             </div>
             <div class="card-body">
               <canvas id="monthAvgChart" width="200" height="200"></canvas>
@@ -232,38 +246,38 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
 
           <div class="card-body" style="padding-top:0px;">
             <div class="row">
-              <div class=" col-12 card-header" >
-                YTD Sales Total Revenue
+              <div class=" col-12 card-header datacolorBackground aboutTitle" >
+                <h5>YTD Sales Total Revenue</h5>
               </div>
             </div>
             <div class="row m-t-sm m-b-sm">
               <div class="col-md-3 col-sm-12">
-                <i class="fa fa-line-chart" aria-hidden="true" style="font-size:60px;"></i>
+                <i class="fa fa-line-chart datacolor" aria-hidden="true" style="font-size:60px;"></i>
               </div>
               <div class="col-md-9 col-sm-12">
                 <div class="col-12">
-                '19: ${{ number_format($totalSalesMonths2019['Total']['Total'], 2) }}
+                <h5>'19: ${{ number_format($totalSalesMonths2019['Total']['Total'], 2) }}</h5>
                 </div>
                 <div class="col-12">
-                '20: ${{ number_format($totalSalesMonths2020['Total']['Total'], 2) }}
+                <h5>'20: ${{ number_format($totalSalesMonths2020['Total']['Total'], 2) }}</h5>
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-12 card-header">
-                New Customers
+              <div class="col-12 card-header datacolorBackground aboutTitle">
+                <h5>New Customers</h5>
               </div>
             </div>
             <div class="row m-t-sm m-b-sm">
               <div class="col-md-3 col-sm-12">
-                <i class="fa fa-user-plus" aria-hidden="true" style="font-size:60px;"></i>
+                <i class="fa fa-user-plus datacolor" aria-hidden="true" style="font-size:60px;"></i>
               </div>
               <div class="col-md-9 col-sm-12">
 
                 <div class="col-sm-12">
                   <div class="col-12">
-                    {{ $newcustomers['2020'] }}
+                    <h5 class="p-t-sm">{{ $newcustomers['2020'] }}</h5>
                   </div>
 
 
@@ -273,13 +287,13 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
             </div><!--end row-->
 
             <div class="row m-t-sm m-b-sm">
-              <div class="col-12 card-header">
-                Above Sales Target
+              <div class="col-12 card-header datacolorBackground aboutTitle">
+                <h5>Above Sales Target</h5>
               </div>
             </div>
             <div class="row">
               <div class="col-md-3 col-sm-12">
-                <i class="fa fa-signal" aria-hidden="true" style="font-size:60px;"></i>
+                <i class="fa fa-signal datacolor" aria-hidden="true" style="font-size:60px;"></i>
               </div>
 
               @php
@@ -289,10 +303,10 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
               @endphp
               <div class="col-md-9 col-sm-12">
                 <div class="col-12">
-                  Target: ${{ number_format($target, 2) }}
+                  <h6>Target: ${{ number_format($target, 2) }}</h6>
                 </div>
                 <div class="col-12">
-                  Above Target: ${{ $amountTarget }}
+                  <h6>Above Target: ${{ $amountTarget }}</h6>
                 </div>
               </div>
 
@@ -302,16 +316,16 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
 
             <div class="row m-t-sm m-b-sm">
 
-              <div class="col-12 card-header">
-                Profits YTD
+              <div class="col-12 card-header datacolorBackground aboutTitle">
+                <h5>Profits YTD</h5>
               </div>
             </div>
             <div class="row">
               <div class="col-md-3 col-sm-12">
-                <i class="fa fa-money" aria-hidden="true" style="font-size:60px;"></i>
+                <i class="fa fa-money datacolor" aria-hidden="true" style="font-size:60px;"></i>
               </div>
               <div class="col-md-9 col-sm-12">
-                YTD ${{number_format(130000, 2)}}
+                <h5 class="p-t-sm">YTD ${{number_format(130000, 2)}}</h5>
               </div>
 
             </div>
@@ -326,8 +340,8 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
     <div class="row m-t-sm m-b-sm">
       <div class="col-12">
         <div class="card p-a-20">
-          <div class="card-header">
-            Sales Data Table (2019-2020)
+          <div class="card-header datacolorBackground aboutTitle">
+            <h4>Sales Data Table (2019-2020)</h4>
           </div>
           <div class="card-body">
             <table id="datatable" class="table table-bordered table-hover table-sm">
@@ -385,6 +399,7 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script>
+    //new chart for monthly totals
     var ctx = document.getElementById('totalChart');
     var totalChart = new Chart(ctx, {
         type: 'line',
@@ -464,7 +479,7 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
 
         }
     });
-
+    //avg sale bar chart
     var ctx = document.getElementById('monthAvgChart');
     var monthAvgChart = new Chart(ctx, {
         type: 'bar',
