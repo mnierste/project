@@ -75,11 +75,9 @@
                   @endif
                 @else
                     <li class="nav-item">
-                      <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      <a id="navbarDropdown" class="dropdown-toggle nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                           {{ Auth::user()->name }} <span class="caret"></span>
                       </a>
-                    </li>
-                    <li class="nav-item">
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{{ url('/home') }}" >Dashboard</a>
                           <a class="dropdown-item" href="{{ route('logout') }}"
@@ -93,6 +91,9 @@
                           </form>
                       </div>
                     </li>
+
+
+
 
                 @endguest
               </ul>

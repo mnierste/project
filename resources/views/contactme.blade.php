@@ -1,4 +1,7 @@
 @extends('layouts.layouts')
+
+@section('title', 'Max Nierste Contact')
+
 @section('content')
 
 
