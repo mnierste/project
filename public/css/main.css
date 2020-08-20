@@ -460,11 +460,10 @@ body {
 .projectpPlaceholder4 img {
   position: absolute;
   display: block;
-  height: 190px;
-  width:auto;
-  margin-left: -20px;
-  margin-top: 8px;
-
+  height: 120px;
+  width: auto;
+  margin-left: 20%;
+  margin-top: -10%;
 
 }
 

@@ -3,26 +3,27 @@
 @section('title', 'Max Nierste, Vue Tasks')
 @section('content')
 <div class="container">
-  <h1>Vue Js Examples</h1>
+  <h1 class="text-center">Vue Js Examples</h1>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-12 text-center">
-      <h3 class=" title-color">To Do list Using Vue.Draggable</h3>
-      <small>Pulls todos from database</small>
+<div class="sectionBackgroundGray m-t-md p-t-md m-b-md p-b-md">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="m-b-0 aboutTitle title-color">To Do list Using Vue.Draggable</h3>
+        <small class="m-t-0 aboutTitle">Pulls todos from database</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="well" id="drag">
+          <task-draggable :tasks-completed=" {{ $tasksCompleted }}" :tasks-not-completed=" {{ $tasksNotCompleted }}"></task-draggable>
+
+        </div> <!-- end app -->
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="well" id="drag">
-        <task-draggable :tasks-completed=" {{ $tasksCompleted }}" :tasks-not-completed=" {{ $tasksNotCompleted }}"></task-draggable>
-
-      </div> <!-- end app -->
-    </div>
-  </div>
 </div>
 
-<hr>
 
 <div class="container">
   <div class="row m-b-md">
@@ -83,31 +84,32 @@
   </div>
 </div> <!-- end container -->
 
-<hr>
 
-<div class="container">
-  <div class="row p-b-sm">
-    <div class="col-12 text-center">
-      <h3>New Instance of Counters Using the Same Component</h3>
-      <small>(same template and function is used but each button maintains its own, separate count)</small>
+<div class="sectionBackgroundGray m-t-md m-b-md p-t-md p-b-md">
+  <div class="container">
+    <div class="row p-b-sm">
+      <div class="col-12 text-center aboutTitle">
+        <h3>New Instance of Counters Using the Same Component</h3>
+        <small>(same template and function is used but each button maintains its own, separate count)</small>
+      </div>
     </div>
-  </div>
-<!-- button component counter -->
-  <div class="row text-center" id="counter-buttons">
-    <div class="col-md-4 col-sm-12" >
-      <button-counter></button-counter>
-    </div>
+  <!-- button component counter -->
+    <div class="row text-center" id="counter-buttons">
+      <div class="col-md-4 col-sm-12" >
+        <button-counter></button-counter>
+      </div>
 
-    <div class="col-md-4 col-sm-12" >
-      <button-counter></button-counter>
-    </div>
+      <div class="col-md-4 col-sm-12" >
+        <button-counter></button-counter>
+      </div>
 
-    <div class="col-md-4 col-sm-12" >
-      <button-counter></button-counter>
+      <div class="col-md-4 col-sm-12" >
+        <button-counter></button-counter>
+      </div>
     </div>
   </div>
 </div>
-<hr>
+
 
 <div class="container">
   <div class="row p-b-sm">
@@ -182,53 +184,54 @@
   </div>
 
 </div><!-- end container -->
-<hr>
-<div class="container" id="app-7">
 
-  <!-- TO-DO LIST -->
-  <div class="row">
+<div class="sectionBackgroundGray m-t-md p-t-md">
+  <div class="container" id="app-7">
 
-    <div class="col-12 text-center">
-      <h3>Grocery List</h3>
-      <small>Todo list w/ no tie into database</small>
-    </div>
-  </div>
-  <div class="row m-b-sm">
-    <div class="col-8" style="padding-right:0px;">
-      <input  class="form-control" v-model="message">
+    <!-- TO-DO LIST -->
+    <div class="row ">
 
+      <div class="col-12 text-center aboutTitle p-b-md">
+        <h3>Grocery List</h3>
+        <small>Todo list w/ no tie into database</small>
+      </div>
     </div>
-    <div class="col-md-4 col-sm-12" style="padding-left:0px;">
-      <button class="btn btn-primary btn-block" @click="addTodo">Add Todo</button>
+    <div class="row m-b-sm">
+      <div class="col-8" style="padding-right:0px;">
+        <input  class="form-control" v-model="message">
+
+      </div>
+      <div class="col-md-4 col-sm-12" style="padding-left:0px;">
+        <button class="btn btn-primary btn-block" @click="addTodo">Add Item</button>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header text-center weather-background ">
-          <h5 class="aboutTitle">Items</h5>
-        </div>
-        <div class="card-body">
-          <ul class="p-a-0 m-b-sm">
-            <!--
-              Now we provide each todo-item with the todo object
-              it's representing, so that its content can be dynamic.
-              We also need to provide each component with a "key",
-              which will be explained later.
-            -->
-            <todo-item class="m-b-sm"
-              v-for="(item, index) in groceryList"
-              v-bind:todo="item"
-              v-bind:key="item.id"
-              v-on:remove="removeRow(index)"
-              ></todo-item>
-          </ul>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header text-center weather-background ">
+            <h5 class="aboutTitle">Items</h5>
+          </div>
+          <div class="card-body">
+            <ul class="p-a-0 m-b-sm">
+              <!--
+                Now we provide each todo-item with the todo object
+                it's representing, so that its content can be dynamic.
+                We also need to provide each component with a "key",
+                which will be explained later.
+              -->
+              <todo-item class="m-b-sm"
+                v-for="(item, index) in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id"
+                v-on:remove="removeRow(index)"
+                ></todo-item>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
+<div>
 @endsection
 @section('scripts')
 

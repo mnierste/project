@@ -63,7 +63,7 @@
         <!-- project 3-->
         <div class="card1 p-t-sm">
           <div class="projectpPlaceholder4" style="padding-top:25%;">
-            <i class="card-img-top responsive devicon-vuejs-plain-wordmark"></i>
+            <img class="card-img-top responsive" src="{{ asset('/images/vuejs.png') }}" ></img>
           </div>
           <div class="card-body">
             <h5 class="card-title">Vue Js Examples</h5>
