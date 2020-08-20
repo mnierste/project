@@ -12,24 +12,101 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        <!--bootstrap-->
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-        <!--tables-->
-
-
-        <!--include custom css (public/css/main.css)-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" >
         <!-- Styles -->
         <style>
         .coverImage{
-            background-image:url('{{ asset('/images/space.jpeg') }}');
-            background-size:     cover;
-            background-repeat:   no-repeat;
-            background-position: center center;
+          background-image:url('{{ asset('/images/space.jpeg') }}');
+          background-size:     cover;
+          background-repeat:   no-repeat;
+          background-position: center center;
         }
+        html,
+        body {
+          background-color: #fff;
+          color: #636b6f;
+          font-family: "Nunito", sans-serif;
+          font-weight: 200;
+          height: 100vh;
+          margin: 0;
+        }
+
+        .full-height {
+          height: 100vh;
+        }
+
+        .flex-center {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+        }
+
+        .position-ref {
+          position: relative;
+        }
+
+        .top-right {
+          position: absolute;
+          right: 10px;
+          top: 18px;
+        }
+
+        .content {
+          text-align: center;
+        }
+
+        .title {
+          font-size: 84px;
+        }
+        .links > a {
+          color: #636b6f;
+          padding: 0 25px;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.1rem;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+        .m-t-md {
+          margin-top: 30px;
+        }
+
+        .m-t-sm {
+          margin-top: 15px;
+        }
+
+        .p-t-md {
+          padding-top: 30px;
+        }
+
+        .p-t-sm {
+          padding-top: 15px;
+        }
+
+        .p-b-md {
+          padding-bottom: 30px;
+        }
+
+        .p-b-sm {
+          padding-bottom: 15px;
+        }
+
+        .m-b-md {
+          margin-bottom: 30px;
+        }
+
+        .m-b-sm {
+          margin-bottom: 15px;
+        }
+
+        .m-b-img {
+          margin-bottom: 5px;
+        }
+
+        .m-t-footer {
+          margin-top: 120px;
+        }
+
+
         </style>
     </head>
     <body class="">
