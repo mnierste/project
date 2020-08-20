@@ -19,7 +19,7 @@
 
 
     <div class="row text-center">
-      <div class="col-md-4">
+      <div class="col-md-3">
       <!--project 1-->
         <div class="card1 p-t-sm">
           <div class="projectpPlaceholder">
@@ -33,7 +33,7 @@
         </div>
 
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
       <!-- project 2-->
         <div class="card1 p-t-sm">
           <div class="projectpPlaceholder2">
@@ -46,7 +46,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <!-- project 3-->
         <div class="card1 p-t-sm">
           <div class="projectpPlaceholder3">
@@ -54,8 +54,21 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">Data Dashboard</h5>
-            <p class="card-text"> Project to displayed data '19-20 sales data into a dashboard</p>
+            <p class="card-text">Display fake '19-20 sales data in a dashboard</p>
             <a href="{{ url('/dataproject') }}" class="btn btn-primary">Data Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <!-- project 3-->
+        <div class="card1 p-t-sm">
+          <div class="projectpPlaceholder4" style="padding-top:25%;">
+            <i class="card-img-top responsive devicon-vuejs-plain-wordmark"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Vue Js Examples</h5>
+            <p class="card-text"> Simple examples in Vue js</p>
+            <a href="{{ url('/demos/tasks') }}" class="btn btn-primary">View the Vue</a>
           </div>
         </div>
       </div>

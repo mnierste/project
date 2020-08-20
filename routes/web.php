@@ -80,8 +80,8 @@ Route::get('/dataproject', 'DataController@index');
 // graph data project end
 
 //---------------------------------------------------------//
-
-
+// ----- Vue Tasks ------ //
+Route::get('demos/tasks','DemoController@showTasks');
 
 // refers to the url /database-test
 Route::get('database-test', function () {

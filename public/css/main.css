@@ -267,7 +267,7 @@ body {
 }
 
 .weather-background {
-  background-color: #337ab7;
+  background-color: #007bff;
 }
 
 .weather-boarder {
@@ -418,8 +418,8 @@ body {
   display: block;
   height: 200px;
   width:auto;
-  /*margin-left: -90px;
-  margin-top: 30px;*/
+  /*margin-left: -90px;*/
+  /*margin-top: 30px;*/
 
 }
 
@@ -438,12 +438,41 @@ body {
 .projectpPlaceholder3 img {
   position: absolute;
   display: block;
-  height: 180px;
+  height: 185px;
   width:auto;
-  /*margin-left: -90px;*/
+  margin-left: -20px;
   margin-top: 8px;
 
 }
+
+.projectpPlaceholder4 {
+  height: 200px;
+  width:200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  overflow:hidden;
+  background-color:#54b883;
+}
+
+.projectpPlaceholder4 img {
+  position: absolute;
+  display: block;
+  height: 190px;
+  width:auto;
+
+
+}
+
+.projectpPlaceholder4 i {
+  font-size:90px;
+  background-color:#54b883;
+  color:#333;
+
+}
+
 
 #totalChart{
   height:250px !important;
