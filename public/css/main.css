@@ -462,6 +462,8 @@ body {
   display: block;
   height: 190px;
   width:auto;
+  margin-left: -20px;
+  margin-top: 8px;
 
 
 }
