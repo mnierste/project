@@ -43,8 +43,7 @@
         <div class="col-12">
           <div id="input-alert">
             <div class="row form-group">
-              <div class="col-8" style="padding-right:0;
-              ">
+              <div class="col-8" style="padding-right:0;">
                 <input class="form-control" v-model="message">
               </div>
               <div class="col-4" style="padding-left:0;">
@@ -95,15 +94,15 @@
     </div>
   <!-- button component counter -->
     <div class="row text-center" id="counter-buttons">
-      <div class="col-md-4 col-sm-12" >
+      <div class="col-4" >
         <button-counter></button-counter>
       </div>
 
-      <div class="col-md-4 col-sm-12" >
+      <div class="col-4" >
         <button-counter></button-counter>
       </div>
 
-      <div class="col-md-4 col-sm-12" >
+      <div class="col-4" >
         <button-counter></button-counter>
       </div>
     </div>
@@ -120,7 +119,7 @@
 
 <!-- reverse Message -->
   <div class="row">
-    <div class="col-md-4 col-sm-12">
+    <div class="col-md-4 col-sm-12 p-b-md">
       <div id="reverse-input">
         <h5 class="text-center">@{{ message }}</h5>
         <input class="form-control text-center" v-model="message">
@@ -128,7 +127,7 @@
       </div>
     </div>
     <!--Checkboxes -->
-    <div class="col-md-4 col-sm-12 text-center" id="app-8">
+    <div class="col-md-4 col-sm-12 text-center p-b-md" id="app-8">
       <div class="form-group col-12" >
         <h5>
           <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
@@ -147,7 +146,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 col-sm-12 text-center">
+    <div class="col-md-4 col-sm-12 text-center p-b-md">
       <div id="app-9" >
         <div class="row">
           <div class="col-md-6 col-sm-12">
@@ -186,7 +185,7 @@
 </div><!-- end container -->
 
 <div class="sectionBackgroundGray m-t-md p-t-md">
-  <div class="container" id="app-7">
+  <div class="container m-b-md p-b-md " id="app-7" >
 
     <!-- TO-DO LIST -->
     <div class="row ">

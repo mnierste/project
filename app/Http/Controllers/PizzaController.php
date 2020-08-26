@@ -28,7 +28,7 @@ class PizzaController extends Controller{
 	 public function index(){
 
      //get parameter example (use for geocode)
-     return view('/projects/pizzas');
+     return view('/projects/pizza/pizzas');
 
 	}
 
@@ -62,7 +62,7 @@ class PizzaController extends Controller{
 		"Banana Peppers", "Pineapple", "Sundried Tomatoes", "Roma Tomatoes",
 		"Gouda", "Feta", "Riccota");
 
-		return view('/projects/pizzashow', [
+		return view('/projects/pizza/pizzashow', [
 			'pizza' => $pizza, 'toppings' => $toppings
 		]);
 	}
@@ -131,6 +131,6 @@ class PizzaController extends Controller{
 
 		$pizza = Pizza::findOrFail($id);
 		$pizza->delete();
-		return view('/projects/pizzas');
+		return view('/projects/pizza/pizzas');
 	}
 }

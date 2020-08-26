@@ -12,39 +12,35 @@ use App\Mail\WelcomeMail;
 | contains the "web" middleware group. Now create something great!
 |
 */
-\
-//---------------------------------------------------------//
 
-//welcome page
+//----- Auth routes and dashboard --------//
+Auth::routes([
+  //make register as a false route
+  'register'=>false
+]);
+//dashboard
+Route::get('/home', 'HomeController@index')->name('home');
+
+//---------welcome page----------------------------------//
 Route::get('/', function () {
     return view('welcome');
 });
 
-//---------------------------------------------------------//
-
-//about page
+//--------about page---------------------------------------//
 Route::get('/about', function () {
     return view('about');
 });
 
-
-//---------------------------------------------------------//
-
-//contactme page
-Route::get('/contactme', 'EmailController@index');
-Route::post('/contactme', 'EmailController@send');
-
-
-//---------------------------------------------------------//
-
-//projects page
+//-------projects page------------------------------------//
 Route::get('/projects', function () {
     return view('/projects/projects');
 });
 
-//----------------------------------------------//
-//Pizza Project (crud App routes)
-//routes in order of priority
+//-------contactme page--------------------------------------//
+Route::get('/contactme', 'EmailController@index');
+Route::post('/contactme', 'EmailController@send');
+
+//-----Pizza Project (crud App routes)-------------------//
 //main page
 Route::get('/pizzas', 'PizzaController@index');
 //order pizza
@@ -59,47 +55,38 @@ Route::get('/pizzas/{id}', 'PizzaController@show')->middleware('auth');
 Route::post('/pizzas/{id}', 'PizzaController@update')->middleware('auth');
 //inactive individual pizza
 Route::put('/pizzas/{id}', 'PizzaController@inactive')->middleware('auth');
-//delete pizza
+//delete individual pizza
 Route::delete('/pizzas/{id}', 'PizzaController@destroy')->middleware('auth');
 
-//END Pizza project
+//-----food finder project ------------------------//
+Route::get('foodfinder/foodfinder', 'FoodController@index');
+Route::get('foodfinder/foodfindershow', 'FoodController@show');
 
-//---------------------------------------------------------//
-
-//food finder project trader_cdl3starsinsouth
-Route::get('/foodfinder', 'FoodController@index');
-Route::get('/foodfindershow', 'FoodController@show');
-// food finder project end
-
-
-//---------------------------------------------------------//
-
-//graph data finder project trader_cdl3starsinsouth
+//----Sales data dashboard project---------------------------//
 Route::get('/dataproject', 'DataController@index');
 
-// graph data project end
+//-----Vue examples------------------------------//
+Route::get('projects/demos/tasks','DemoController@showTasks');
 
-//---------------------------------------------------------//
-// ----- Vue Tasks ------ //
-Route::get('demos/tasks','DemoController@showTasks');
-
-// refers to the url /database-test
-Route::get('database-test', function () {
-    if(DB::connection()->getDatabaseName() ){
-    	echo 'Connected successfully to database ' . DB::connection()->getDatabaseName();
-    }
-
+//----Landing page example-------------//
+Route::get('/landingpage', function () {
+    return view('/projects/landingpage');
 });
 
 
+//--- other projects in progress ---//
+
+//contacts crud
 Route::get('contacts', 'ContactController@index')->middleware('auth');
+
+//email sending (welcome email when registered)
 Route::get('email', function(){
   return new WelcomeMail();
 });
 
-Auth::routes([
-  //make register as a false route
-  'register'=>false
-]);
-
-Route::get('/home', 'HomeController@index')->name('home');
+// refers to the url (database-test)
+Route::get('database-test', function () {
+    if(DB::connection()->getDatabaseName() ){
+    	echo 'Connected successfully to database ' . DB::connection()->getDatabaseName();
+    }
+});

@@ -60,6 +60,10 @@ body {
   margin-top: 15px;
 }
 
+.p-t-lg {
+  padding-top: 45px;
+}
+
 .p-t-md {
   padding-top: 30px;
 }
@@ -125,7 +129,9 @@ body {
   background-color: #fff;
 }
 
-
+.sectionBackgroundGrad {
+  background-image: linear-gradient(360deg, #6303B1, #ff0099);
+}
 
 
 .jumbotron {
@@ -133,6 +139,8 @@ body {
   max-width: 100%;
   color: white;
   padding-bottom: 80px;
+  border-radius: 0px;
+}
 }
 
 .jumbotron .btn-primary {
@@ -467,6 +475,28 @@ body {
 
 }
 
+.projectpPlaceholder5 {
+  height: 200px;
+  width:200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  overflow:hidden;
+  background-color:#fff;
+}
+
+.projectpPlaceholder5 img {
+  position: absolute;
+  display: block;
+  height: 200px;
+  width: auto;
+  margin-left: -85px;
+  /* margin-top: -10%; */
+}
+}
+
 #totalChart{
   height:250px !important;
 }
@@ -507,4 +537,116 @@ button.navbar-toggler.navbar-toggler-right {
   nav.navbar {
     background: white;
   }
+}
+
+/*landing page*/
+
+.diagonal-box {
+  position: relative;
+	background-image: linear-gradient(45deg, #ff0099, #6303B1);
+  transform: skewY(-15deg);
+  z-index: 0;
+}
+.diagonal-content {
+	max-width: 50em;
+    margin: 0 auto;
+    transform: skewY(15deg);
+}
+
+.spikes {
+  position: relative;
+  background-image: linear-gradient(360deg, #6303B1, #ff0099);
+  /*height: 60%;*/
+
+}
+
+.spikes::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: -0%;
+  top: 100%;
+  z-index: 10;
+  display: block;
+  height: 50px;
+  background-size: 50px 100%;
+  background-image: linear-gradient(135deg, #6303B1, 25%, transparent 25%), linear-gradient(225deg, #6303B1, 25%, transparent 25%);
+  background-position: 0 0;
+
+}
+
+.overflow-hidden{
+  overflow:hidden;
+}
+
+
+.subscribe {
+  position: relative;
+  background-image: linear-gradient(360deg, #6303B1, #ff0099);
+  /*height: 60%;*/
+
+}
+
+.subscribe::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: -0%;
+  top: 100%;
+  z-index: 10;
+  display: block;
+  height: 50px;
+  background-image: linear-gradient(135deg, #6303B1, 25%, transparent 25%), linear-gradient(225deg, #6303B1, 25%, transparent 25%);
+  background-position: 0 0;
+}
+
+.curved {
+  position: relative;
+  background: black;
+  height: 50vh;
+}
+
+.btn-grad{
+  position: relative;
+  color: #fff;
+  background-image: linear-gradient(360deg, #6303B1, #ff0099);
+  border-color: #fff;
+  z-index: 0;
+}
+
+.btn-grad:hover, .btn-grad:focus, .btn-grad:active, .btn-grad.active, .open>.dropdown-toggle.btn-grad {
+  position: relative;
+  color: #fff;
+  background-color: #000;
+  border-color: #fff; /*set the color you want here*/
+  z-index: 0;
+}
+
+.btn-black{
+  position: relative;
+  color: #fff;
+  background:#000;
+  border-color: #fff;
+  z-index: 0;
+}
+
+.btn-outline-black {
+    color: #000;
+    border-color: #000;
+}
+
+.curved::after {
+  content: '';
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(180deg, #6303B1, #ff0099);
+  height: 20%;
+}
+
+.pull-forward{
+  position:relative;
+  z-index: 2;
 }

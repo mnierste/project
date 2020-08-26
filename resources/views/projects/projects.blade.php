@@ -19,7 +19,7 @@
 
 
     <div class="row text-center">
-      <div class="col-md-3">
+      <div class="col-md-4">
       <!--project 1-->
         <div class="card1 p-t-sm">
           <div class="projectpPlaceholder">
@@ -33,7 +33,7 @@
         </div>
 
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
       <!-- project 2-->
         <div class="card1 p-t-sm">
           <div class="projectpPlaceholder2">
@@ -46,7 +46,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <!-- project 3-->
         <div class="card1 p-t-sm">
           <div class="projectpPlaceholder3">
@@ -59,21 +59,38 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <!-- project 3-->
-        <div class="card1 p-t-sm">
-          <div class="projectpPlaceholder4" style="padding-top:25%;">
-            <img class="card-img-top responsive" src="{{ asset('/images/vuejs.png') }}" ></img>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Vue Js Examples</h5>
-            <p class="card-text"> Simple examples in Vue js</p>
-            <a href="{{ url('/demos/tasks') }}" class="btn btn-primary">View the Vue</a>
-          </div>
+
+    </div>
+  </div><!-- row -->
+  <div class="row text-center">
+    <div class="col-md-6 col-sm-12">
+      <!-- project 3-->
+      <div class="card1 p-t-sm">
+        <div class="projectpPlaceholder4" style="padding-top:60px;">
+          <img class="card-img-top responsive" src="{{ asset('/images/vuejs.png') }}" ></img>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Vue Js Examples</h5>
+          <p class="card-text"> Simple examples in Vue js</p>
+          <a href="{{ url('/demos/tasks') }}" class="btn btn-primary">View the Vue</a>
         </div>
       </div>
     </div>
-  </div><!-- row -->
+    <div class="col-md-6 col-sm-12">
+    <!--project 1-->
+      <div class="card1 p-t-sm">
+        <div class="projectpPlaceholder5">
+          <img class="card-img-top responsive" src="{{ asset('/images/landingpage.png') }}" alt="pizza place app">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Landing Page</h5>
+          <p class="card-text">Basic Landing page with different css border styles</p>
+          <a href="{{ url('/landingpage') }}" class="btn btn-primary">Landing Page</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 

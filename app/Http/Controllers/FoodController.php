@@ -26,7 +26,7 @@ class FoodController extends Controller{
 
 
      //get parameter example (use for geocode)
-     return view('/projects/foodfinder');
+     return view('/projects/foodfinder/foodfinder');
 
 
 	}
@@ -82,7 +82,7 @@ class FoodController extends Controller{
 
 
      //get parameter example (use for geocode)
-     return view('/projects/foodfindershow', [
+     return view('/projects/foodfinder/foodfindershow', [
        'address' => $address,
 			 'zomato' => $zomatoresponse
 		 ]);

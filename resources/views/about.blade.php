@@ -22,7 +22,7 @@
       <div class="col-md-12 text-center">
         <h3 id="aboutme">About Me</h3>
 
-        <p>I'm a Full-stack developer based in the United States. I have alot of experience
+        <p>I'm a Full-stack developer based in the United States. I have a lot of experience
          with remote Companies / Teams. When I am not programming, you can find me outside
          relaxing with family, working on gardening projects, or playing with our pets!</p>
        </div>

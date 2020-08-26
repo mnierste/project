@@ -21,7 +21,7 @@ class DemoController extends Controller
            return  ! $task->status;
        })->values();
 
-       return view('demos.alltasks',compact('tasksCompleted','tasksNotCompleted'));
+       return view('projects/demos/alltasks',compact('tasksCompleted','tasksNotCompleted'));
    }
 
 

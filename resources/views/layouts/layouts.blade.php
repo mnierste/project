@@ -37,7 +37,7 @@
     </head>
     <body class="">
 
-      <div class="flex-center position-ref">
+      <div class="position-ref">
 
           <nav class="navbar navbar-expand-md navbar-light ">
 
@@ -47,7 +47,7 @@
             </button>
 
             <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
               <ul class="navbar-nav">
 
 
@@ -66,7 +66,7 @@
                 <!-- Authentication Links -->
                 @guest
                   <li class="nav-item">
-                    <a class="float-right nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>
                   @if (Route::has('register'))
                     <li class="nav-item">
