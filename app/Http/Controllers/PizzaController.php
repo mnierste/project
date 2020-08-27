@@ -100,7 +100,7 @@ class PizzaController extends Controller{
 		"Jalapeno", "Banana Peppers", "Pineapple", "Sundried Tomatoes",
 		"Roma Tomatoes", "Gouda", "Feta", "Riccota");
 
-		return view('/projects/pizzacreate', ['toppings' => $toppings]);
+		return view('/projects/pizza/pizzacreate', ['toppings' => $toppings]);
 	}
 
 	public function store(){
