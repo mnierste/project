@@ -4,20 +4,13 @@
 
 @section('css')
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-
-
 @endsection
-
 
 @section('content')
 
-
-
 @php
-
 // fake 2019 sales data using Mockaroo
 $graph_data2019 = json_decode(file_get_contents(asset('/MOCK_DATA2019.json')), true);
-
 
 $totalSalesMonths2019 = Array();
 
@@ -42,7 +35,6 @@ $newcustomers['2019'] = 0;
 
 //grab total sales amount (would be easier coming from a database)
 for($i=0;$i< count($graph_data2019);$i++){
-
 
   //new customer added to total
   if($graph_data2019[$i]['is_new_customer'] ==1){
@@ -113,9 +105,7 @@ for($i=0;$i< count($graph_data2019);$i++){
     }
 }
 ############## 2020 ##############
-
 $graph_data2020 = json_decode(file_get_contents(asset('/MOCK_DATA2020.json')), true);
-
 
 $totalSalesMonths2020 = Array();
 
@@ -212,38 +202,31 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
 
 @endphp
 
-
 <div class="content p-b-md datacolorBackground p-t-md">
   <div class="container">
     <div class="row ">
       <div class="col-md-7 col-sm-12">
-
-          <div class="card p-a-20 m-b-sm">
-            <div class="card-header datacolorBackground aboutTitle">
-              <h5>Total Monthly Sales</h5>
-            </div>
-            <div class="card-body">
-              <canvas id="totalChart" width="200" height="200"></canvas>
-            </div>
+        <div class="card p-a-20 m-b-sm">
+          <div class="card-header datacolorBackground aboutTitle">
+            <h5>Total Monthly Sales</h5>
           </div>
-
-
-
-          <div class="card p-a-20">
-            <div class="card-header datacolorBackground aboutTitle">
-              <h5>Monthly Avg Sales</h5>
-            </div>
-            <div class="card-body">
-              <canvas id="monthAvgChart" width="200" height="200"></canvas>
-            </div>
+          <div class="card-body">
+            <canvas id="totalChart" width="200" height="200"></canvas>
           </div>
+        </div>
 
+        <div class="card p-a-20">
+          <div class="card-header datacolorBackground aboutTitle">
+            <h5>Monthly Avg Sales</h5>
+          </div>
+          <div class="card-body">
+            <canvas id="monthAvgChart" width="200" height="200"></canvas>
+          </div>
+        </div>
       </div><!--end col-8 charts-->
-
 
       <div class="col-md-5 col-sm-12">
         <div class="card p-a-20">
-
           <div class="card-body" style="padding-top:0px;">
             <div class="row">
               <div class=" col-12 card-header datacolorBackground aboutTitle" >
@@ -269,20 +252,17 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
                 <h5>New Customers</h5>
               </div>
             </div>
+
             <div class="row m-t-sm m-b-sm">
               <div class="col-md-3 col-sm-12">
                 <i class="fa fa-user-plus datacolor" aria-hidden="true" style="font-size:60px;"></i>
               </div>
               <div class="col-md-9 col-sm-12">
-
                 <div class="col-sm-12">
                   <div class="col-12">
                     <h5 class="p-t-sm">{{ $newcustomers['2020'] }}</h5>
                   </div>
-
-
                 </div>
-
               </div>
             </div><!--end row-->
 
@@ -297,6 +277,7 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
               </div>
 
               @php
+
                 $target = 224000.00;
                 $amountTarget = number_format($totalSalesMonths2020['Total']['Total'] - $target, 2);
 
@@ -309,17 +290,14 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
                   <h6>Above Target: ${{ $amountTarget }}</h6>
                 </div>
               </div>
-
-
             </div>
 
-
             <div class="row m-t-sm m-b-sm">
-
               <div class="col-12 card-header datacolorBackground aboutTitle">
                 <h5>Profits YTD</h5>
               </div>
             </div>
+
             <div class="row">
               <div class="col-md-3 col-sm-12">
                 <i class="fa fa-money datacolor" aria-hidden="true" style="font-size:60px;"></i>
@@ -327,15 +305,12 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
               <div class="col-md-9 col-sm-12">
                 <h5 class="p-t-sm">YTD ${{number_format(130000, 2)}}</h5>
               </div>
-
             </div>
+
           </div>
         </div>
-
       </div>
     </div><!--end row-->
-
-
 
     <div class="row m-t-sm m-b-sm">
       <div class="col-12">
@@ -378,7 +353,6 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
                 @endforeach
               </tbody>
             </table>
-
           </div>
         </div><!--end card-->
       </div>
@@ -387,9 +361,7 @@ $table_data = array_merge($graph_data2019, $graph_data2020);
 </div><!--end content-->
 @endsection
 
-
 @section('scripts')
-
 
   <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
   <script>

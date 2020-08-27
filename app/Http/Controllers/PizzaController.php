@@ -14,19 +14,44 @@ class PizzaController extends Controller{
 	|
 	| This controller is responsible for handling baisc CRUD app for a pizza place
 	|
+	|	INDEX
+	| pizzas
+	|  **Allows one to create a pizza
 	|
+	| ORDERS
+	|	pizzaorders
+	|  **Allows one to see all orders
+	|
+	| SHOW(id)
+	|	pizzashow
+	|	 **Allows one to see individual pizza
+	|  **Allows one to edit/update individual pizza
+	|  **Allows one to inactiave individual pizza
+	|  **Allows one to delete individual pizza
+	|
+	| CREATE
+	| pizzacreate
+	|  **Creates pizza in db
+	|
+	| STORE
+	| pizzas
+	|  **Saves pizza in db
+	|
+	| UPDATE
+	| pizzas/id
+	|  **Updates individual pizza in db
+	|
+	| INACTIVE(id)
+	| pizzas
+	|  **Inactivates in db pizza
+	|
+	| DESTROY(id)
+	| pizzas
+	|  **deletes record in dbpizza
+	|--------------------------------------------------------------------------
 	*/
-	/* USE THIS to protect all routes in this controller instead of
-		->middleware(auth) in routes/web.php
 
-	 public function __construct(){
-
-		 $this->middleware(auth);
-
-	 }
-	*/
 	 public function index(){
-
      //get parameter example (use for geocode)
      return view('/projects/pizza/pizzas');
 
@@ -58,9 +83,9 @@ class PizzaController extends Controller{
 
 		$toppings = Array("Ham", "Pepperoni", "Italian Sausage",
 		"Meatball", "Bacon", "Chicken", "Beef", "Pork", "Human", "Buffalo Chicken",
-		"Mushrooms", "Spinach", "Onions", "Red Onions", "Olives", "Bell Peppers", "Jalapeno",
-		"Banana Peppers", "Pineapple", "Sundried Tomatoes", "Roma Tomatoes",
-		"Gouda", "Feta", "Riccota");
+		"Mushrooms", "Spinach", "Onions", "Red Onions", "Olives", "Bell Peppers",
+		"Jalapeno", "Banana Peppers", "Pineapple", "Sundried Tomatoes",
+		"Roma Tomatoes", "Gouda", "Feta", "Riccota");
 
 		return view('/projects/pizza/pizzashow', [
 			'pizza' => $pizza, 'toppings' => $toppings
@@ -71,9 +96,9 @@ class PizzaController extends Controller{
 
 		$toppings = Array("Ham", "Pepperoni", "Italian Sausage",
 		"Meatball", "Bacon", "Chicken", "Beef", "Pork", "Human", "Buffalo Chicken",
-		"Mushrooms", "Spinach", "Onions", "Red Onions", "Olives", "Bell Peppers", "Jalapeno",
-		"Banana Peppers", "Pineapple", "Sundried Tomatoes", "Roma Tomatoes",
-		"Gouda", "Feta", "Riccota");
+		"Mushrooms", "Spinach", "Onions", "Red Onions", "Olives", "Bell Peppers",
+		"Jalapeno", "Banana Peppers", "Pineapple", "Sundried Tomatoes",
+		"Roma Tomatoes", "Gouda", "Feta", "Riccota");
 
 		return view('/projects/pizzacreate', ['toppings' => $toppings]);
 	}
@@ -106,7 +131,6 @@ class PizzaController extends Controller{
 		]);
 
 		//dd(request('toppings'));
-
 		if($pizza ==1){
 			return redirect('/pizzas/'.$id)->with('mssg', 'Thank you for updating your order');
 

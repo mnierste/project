@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-
 class FoodController extends Controller{
 	/*
 	|--------------------------------------------------------------------------
@@ -20,20 +19,20 @@ class FoodController extends Controller{
 	|  **takes address from index page
 	|  **uses geocode api for lat and long2ip
 	|	 **uses Zomato api for list of places to eat
+	|
+	|--------------------------------------------------------------------------
 	*/
 
-	 public function index(){
+	public function index(){
 
-
-     //get parameter example (use for geocode)
-     return view('/projects/foodfinder/foodfinder');
-
+		return view('/projects/foodfinder/foodfinder');
 
 	}
 
 	public function show(){
-
-		//------ start geo lat long http request
+		/*
+		| start geo lat long http request
+		*/
 
 		 $address = [];
 		 $address['street']= request('street');
@@ -42,31 +41,30 @@ class FoodController extends Controller{
 		 $address['zip'] = request('zip');
 
 		 $data = [];
-
      foreach($address as $key => $val){
-         #$value = $conn -> real_escape_string($val);
+         //$value = $conn -> real_escape_string($val);
 
          $data[]= $key."=".$val;
      }
 		 $data = implode("&", $data);
 
-		 #https://geocoding.geo.census.gov/geocoder/locations/address?".$data."&benchmark=Public_AR_Census2010&format=json";
+		 //https://geocoding.geo.census.gov/geocoder/locations/address?".$data."&benchmark=Public_AR_Census2010&format=json";
 
 		 $geocodeclient = new \GuzzleHttp\Client();
 	 	 $geocoderequest = $geocodeclient->get('https://geocoding.geo.census.gov/geocoder/locations/address?'.$data.'&benchmark=Public_AR_Census2010&format=json');
 	   $geocoderesponse = $geocoderequest;
-
 		 $geocodeinfo = JSON_decode($geocoderesponse->getBody(), true);
 
-		 // ----- END geocode
+	 	 // END geo lat long ----------------------------------------------------
 
-		 /// ---- start zomato request
+		 /*
+	 	 | start zomato request
+	 	 */
 
 		 //lat long added to address array from geo code
 		 $address['Lat'] = $geocodeinfo['result']['addressMatches']['0']['coordinates']['y'];
 	   $address['Long'] = $geocodeinfo['result']['addressMatches']['0']['coordinates']['x'];
 
-		 //api key
 		 //$zomato_id = env(ZOMATO_API);
 		 $zomato_id = '310279ba8b666c1de79b745382936363';
 		 //url
@@ -77,18 +75,12 @@ class FoodController extends Controller{
 		 $zomatorequest = $zomatoclient->get($zomato_url);
 		 $zomatoresponse = $zomatorequest;
 
-		 //end Zomato request
-
-
-
-     //get parameter example (use for geocode)
+		 // END Zomato request --------------------------------------------------
+	 	 
      return view('/projects/foodfinder/foodfindershow', [
        'address' => $address,
 			 'zomato' => $zomatoresponse
 		 ]);
 	}
-
-
-
 
 }

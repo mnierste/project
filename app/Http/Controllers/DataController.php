@@ -15,8 +15,8 @@ class DataController extends Controller{
 	| dashboard info
 	|
 	|	INDEX
-	|
-	|
+	|		** shows sales data for '19 and '20
+	|--------------------------------------------------------------------------
 	*/
 
 	 public function index(){

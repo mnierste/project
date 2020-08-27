@@ -13,34 +13,34 @@ use App\Mail\WelcomeMail;
 |
 */
 
-//----- Auth routes and dashboard --------//
+//---- Auth routes and dashboard ------------------------------------------
 Auth::routes([
   //make register as a false route
   'register'=>false
 ]);
-//dashboard
+//---- dashboard ----------------------------------------------------------
 Route::get('/home', 'HomeController@index')->name('home');
 
-//---------welcome page----------------------------------//
+//---- welcome page -------------------------------------------------------
 Route::get('/', function () {
     return view('welcome');
 });
 
-//--------about page---------------------------------------//
+//---- about page ----------------------------------------------------------
 Route::get('/about', function () {
     return view('about');
 });
 
-//-------projects page------------------------------------//
+//---- projects page -------------------------------------------------------
 Route::get('/projects', function () {
     return view('/projects/projects');
 });
 
-//-------contactme page--------------------------------------//
+//---- contactme page ------------------------------------------------------
 Route::get('/contactme', 'EmailController@index');
 Route::post('/contactme', 'EmailController@send');
 
-//-----Pizza Project (crud App routes)-------------------//
+//---- Pizza Project (crud App routes) -------------------------------------
 //main page
 Route::get('/pizzas', 'PizzaController@index');
 //order pizza
@@ -58,33 +58,36 @@ Route::put('/pizzas/{id}', 'PizzaController@inactive')->middleware('auth');
 //delete individual pizza
 Route::delete('/pizzas/{id}', 'PizzaController@destroy')->middleware('auth');
 
-//-----food finder project ------------------------//
+//---- food finder project -------------------------------------------------
 Route::get('foodfinder/foodfinder', 'FoodController@index');
 Route::get('foodfinder/foodfindershow', 'FoodController@show');
 
-//----Sales data dashboard project---------------------------//
+//---- Sales data dashboard project ----------------------------------------
 Route::get('/dataproject', 'DataController@index');
 
-//-----Vue examples------------------------------//
+//---- Vue examples --------------------------------------------------------
 Route::get('projects/demos/tasks','DemoController@showTasks');
 
-//----Landing page example-------------//
+//---- Landing page example ------------------------------------------------
 Route::get('/landingpage', function () {
     return view('/projects/landingpage');
 });
 
+/*
+|--------------------------------------------------------------------------
+| other projects in progress
+|--------------------------------------------------------------------------
+*/
 
-//--- other projects in progress ---//
-
-//contacts crud
+//---- contacts crud -------------------------------------------------------
 Route::get('contacts', 'ContactController@index')->middleware('auth');
 
-//email sending (welcome email when registered)
+//---- email sending (welcome email when registered) -----------------------
 Route::get('email', function(){
   return new WelcomeMail();
 });
 
-// refers to the url (database-test)
+// refers to the url (database-test) ---------------------------------------
 Route::get('database-test', function () {
     if(DB::connection()->getDatabaseName() ){
     	echo 'Connected successfully to database ' . DB::connection()->getDatabaseName();

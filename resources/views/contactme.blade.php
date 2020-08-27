@@ -7,10 +7,8 @@
 
 <div class="coverImage p-t-md p-b-md " >
   <div class="container ">
-
     <div class="aboutTitle flex-center title m-b-sm">
-        Contact Me
-
+      <h1>Contact Me<h1>
     </div>
     <div class="aboutTitle flex-center m-b-md">
       <h2>Max Nierste Full-stack Developer</h2>
@@ -35,7 +33,6 @@
          </div>
        @endif
     </div><!--end row-->
-
 
     <div class="row">
       <div class="col-md-12">

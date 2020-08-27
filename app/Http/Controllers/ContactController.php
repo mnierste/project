@@ -12,19 +12,13 @@ class ContactController extends Controller{
 	|--------------------------------------------------------------------------
 	|
 	| This controller is responsible for handling contacts.
-	|
+	|--------------------------------------------------------------------------
 	*/
 
-	//power the contact page
 	function index(){
+
 		$contacts = \App\Contacts::all();
 
-		/*
-		echo '<pre>';
-		print_r($contacts);
-		echo '</pre>';
-		*/
-
-		return view('contacts.index', ['all_contacts' => $contacts]);
+		return view('projects/contacts/index', ['all_contacts' => $contacts]);
 	}
 }
