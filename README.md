@@ -14,13 +14,17 @@ This is a Portfolio project using Laravel:
     - Map marker and Zomato API to locate local restaurants near you
   - Data Project
     - Dashboard data display for company sales numbers
+  - Vue Examples
+    - Basic Vue Component Examples
+  - Landing Page
+    - Basic landing page with different css borders 
 - Contact Me
 - Login dashboard
   - manage crud functionality with pizzas and contacts
 
 ## Learning Laravel
 
-Laravel [documentation](https://laravel.com/docs) 
+Laravel [documentation](https://laravel.com/docs)
 
 ## License
 
