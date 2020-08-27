@@ -28,14 +28,14 @@
               <div class="row">
                 <div class="col-6">
                   <div class="form-group">
-                      <label for="name">First Name</label>
-                      <input class="form-control" id="firstname" name="firstname" placeholder="First Name">
+                      <label for="firstname">First Name <span style="color:red;">*</span></label>
+                      <input required class="form-control" id="firstname" name="firstname" placeholder="First Name">
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
-                      <label for="name">Last Name</label>
-                      <input class="form-control" id="firstname" name="lastname" placeholder="Last Name">
+                      <label for="lastname">Last Name <span style="color:red;">*</span></label>
+                      <input required class="form-control" id="lastname" name="lastname" placeholder="Last Name">
                   </div>
                 </div>
               </div><!--end row-->

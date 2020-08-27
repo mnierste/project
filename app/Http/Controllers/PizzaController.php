@@ -72,7 +72,7 @@ class PizzaController extends Controller{
 		#$pizzas = Pizza::latest()->get();
 
 		//get parameter example (use for geocode)
-		return view('/projects/pizzaorders', [
+		return view('/projects/pizza/pizzaorders', [
 			'pizzas' => $pizzas,
 			'inactivePizzas' =>$inactivePizzas,
 		]);
