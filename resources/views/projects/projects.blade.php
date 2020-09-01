@@ -91,7 +91,7 @@
         <div class="card-body">
           <h5 class="card-title">Contacts Crud</h5>
           <p class="card-text">CRUD for contacts - Log into the test account to see contacts</p>
-          <a href="{{ url('/landingpage') }}" class="btn btn-primary">Contacts</a>
+          <a href="{{ url('/contacts') }}" class="btn btn-primary">Contacts</a>
         </div>
       </div>
     </div>
