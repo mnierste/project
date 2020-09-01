@@ -191,6 +191,41 @@
   </div>
 </div>
 
+<div class="counter-background p-t-md p-b-md">
+  <div class="container">
+    <div class="row text-center aboutTitle">
+  	   <div class="col">
+  	      <div class="counter">
+            <i class="fa fa-line-chart fa-2x"></i>
+            <h2 class="timer count-title count-number" data-to="16782" data-speed="1200"></h2>
+            <p class="count-text ">Sales</p>
+          </div>
+      </div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-users fa-2x"></i>
+          <h2 class="timer count-title count-number" data-to="86" data-speed="1200"></h2>
+          <p class="count-text ">New Employees</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-pied-piper fa-2x"></i>
+          <h2 class="timer count-title count-number" data-to="139567" data-speed="1200"></h2>
+          <p class="count-text ">Packages Sold</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-pied-piper-pp fa-2x"></i>
+          <h2 class="timer count-title count-number" data-to="667" data-speed="1200"></h2>
+          <p class="count-text ">New Partners</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="sectionBackgroundGrad p-t-md p-b-md">
   <div class="container">
     <div class="row text-center">
@@ -206,7 +241,7 @@
           Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
       <div class="col-md-4 col-sm-12">
-        <form action="#" method="post">
+        <form action="#" method="#">
           @csrf
           <div class="form-group">
             <label class="aboutTitle" for="Email">Email</label>
@@ -214,7 +249,7 @@
               <input type="email" class="form-control" id="Email"  name="email"
               placeholder="Enter email">
                 <span>
-                  <button type="submit" class="btn btn-black">Subscribe</button>
+                  <button type="#" class="btn btn-black">Subscribe</button>
                 </span>
             </div>
           </div>
@@ -224,4 +259,108 @@
   </div>
 </div>
 
+@endsection
+
+
+@section('scripts')
+  <script>
+  (function ($) {
+	$.fn.countTo = function (options) {
+		options = options || {};
+
+		return $(this).each(function () {
+			// set options for current element
+			var settings = $.extend({}, $.fn.countTo.defaults, {
+				from:            $(this).data('from'),
+				to:              $(this).data('to'),
+				speed:           $(this).data('speed'),
+				refreshInterval: $(this).data('refresh-interval'),
+				decimals:        $(this).data('decimals')
+			}, options);
+
+			// how many times to update the value, and how much to increment the value on each update
+			var loops = Math.ceil(settings.speed / settings.refreshInterval),
+				increment = (settings.to - settings.from) / loops;
+
+			// references & variables that will change with each update
+			var self = this,
+				$self = $(this),
+				loopCount = 0,
+				value = settings.from,
+				data = $self.data('countTo') || {};
+
+			$self.data('countTo', data);
+
+			// if an existing interval can be found, clear it first
+			if (data.interval) {
+				clearInterval(data.interval);
+			}
+			data.interval = setInterval(updateTimer, settings.refreshInterval);
+
+			// initialize the element with the starting value
+			render(value);
+
+			function updateTimer() {
+				value += increment;
+				loopCount++;
+
+				render(value);
+
+				if (typeof(settings.onUpdate) == 'function') {
+					settings.onUpdate.call(self, value);
+				}
+
+				if (loopCount >= loops) {
+					// remove the interval
+					$self.removeData('countTo');
+					clearInterval(data.interval);
+					value = settings.to;
+
+					if (typeof(settings.onComplete) == 'function') {
+						settings.onComplete.call(self, value);
+					}
+				}
+			}
+
+			function render(value) {
+				var formattedValue = settings.formatter.call(self, value, settings);
+				$self.html(formattedValue);
+			}
+		});
+	};
+
+	$.fn.countTo.defaults = {
+		from: 0,               // the number the element should start at
+		to: 0,                 // the number the element should end at
+		speed: 1000,           // how long it should take to count between the target numbers
+		refreshInterval: 100,  // how often the element should be updated
+		decimals: 0,           // the number of decimal places to show
+		formatter: formatter,  // handler for formatting the value before rendering
+		onUpdate: null,        // callback method for every time the element is updated
+		onComplete: null       // callback method for when the element finishes updating
+	};
+
+	function formatter(value, settings) {
+		return value.toFixed(settings.decimals);
+	}
+}(jQuery));
+
+jQuery(function ($) {
+  // custom formatting example
+  $('.count-number').data('countToOptions', {
+	formatter: function (value, options) {
+	  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+	}
+  });
+
+  // start all the timers
+  $('.timer').each(count);
+
+  function count(options) {
+	var $this = $(this);
+	options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+	$this.countTo(options);
+  }
+});
+</script>
 @endsection

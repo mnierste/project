@@ -66,12 +66,12 @@
     </div>
   </div><!-- row -->
   <div class="row text-center">
-    <div class="col-md-6 col-sm-12">
-      <!-- project 3-->
+    <div class="col-md-4">
+      <!-- project 4-->
       <div class="card1 p-t-sm">
         <div class="projectpPlaceholder4" style="padding-top:60px;">
           <img class="card-img-top responsive"
-          src="{{ asset('/images/vuejs.png') }}" ></img>
+          src="{{ asset('/images/vuejs.png') }}" alt="vue examples"></img>
         </div>
         <div class="card-body">
           <h5 class="card-title">Vue Js Examples</h5>
@@ -80,12 +80,28 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-12">
-    <!--project 1-->
+
+    <div class="col-md-4">
+
       <div class="card1 p-t-sm">
         <div class="projectpPlaceholder5">
           <img class="card-img-top responsive"
-          src="{{ asset('/images/landingpage.png') }}" alt="pizza place app">
+          src="{{ asset('/images/contacts.png') }}" alt="contacts crud">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Contacts Crud</h5>
+          <p class="card-text">CRUD for contacts - Log into the test account to see contacts</p>
+          <a href="{{ url('/landingpage') }}" class="btn btn-primary">Contacts</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+
+      <div class="card1 p-t-sm">
+        <div class="projectpPlaceholder6">
+          <img class="card-img-top responsive"
+          src="{{ asset('/images/landingpage.png') }}" alt="landingpage">
         </div>
         <div class="card-body">
           <h5 class="card-title">Landing Page</h5>

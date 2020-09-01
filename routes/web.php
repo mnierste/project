@@ -73,14 +73,25 @@ Route::get('/landingpage', function () {
     return view('/projects/landingpage');
 });
 
+//---- Contacts crud -------------------------------------------------------
+//show all contacts
+Route::get('/contacts', 'ContactController@index')->middleware('auth');
+//add contact
+Route::get('/contacts/addcontact', 'ContactController@create')->middleware('auth');
+//save contact
+Route::post('/contacts', 'ContactController@store');
+//see individual contact
+Route::get('/contacts/{id}', 'ContactController@show')->middleware('auth');
+//edit individual contact
+Route::post('/contacts/{id}', 'ContactController@update')->middleware('auth');
+//delete individual contact
+Route::delete('/contacts/{id}', 'ContactController@destroy')->middleware('auth');
+
 /*
 |--------------------------------------------------------------------------
 | other projects in progress
 |--------------------------------------------------------------------------
 */
-
-//---- contacts crud -------------------------------------------------------
-Route::get('contacts', 'ContactController@index')->middleware('auth');
 
 //---- email sending (welcome email when registered) -----------------------
 Route::get('email', function(){

@@ -484,10 +484,31 @@ body {
   position: relative;
   background-size: cover;
   overflow:hidden;
-  background-color:#fff;
+  background-color:#999;
 }
 
 .projectpPlaceholder5 img {
+  position: absolute;
+  display: block;
+  height: 190px;
+  width: auto;
+  margin-left: -50px;
+  /* margin-top: -10%; */
+}
+
+.projectpPlaceholder6 {
+  height: 200px;
+  width:200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  overflow:hidden;
+  background-color:#fff;
+}
+
+.projectpPlaceholder6 img {
   position: absolute;
   display: block;
   height: 200px;
@@ -495,7 +516,7 @@ body {
   margin-left: -85px;
   /* margin-top: -10%; */
 }
-}
+
 
 #totalChart{
   height:250px !important;
@@ -544,13 +565,13 @@ button.navbar-toggler.navbar-toggler-right {
 .diagonal-box {
   position: relative;
 	background-image: linear-gradient(45deg, #ff0099, #6303B1);
-  transform: skewY(-15deg);
+  transform: skewY(-18deg);
   z-index: 0;
 }
 .diagonal-content {
 	max-width: 50em;
     margin: 0 auto;
-    transform: skewY(15deg);
+    transform: skewY(18deg);
 }
 
 .spikes {
@@ -579,6 +600,12 @@ button.navbar-toggler.navbar-toggler-right {
   overflow:hidden;
 }
 
+.counter-background {
+  position: relative;
+  background-image: linear-gradient(360deg, #ff0099, #6303B1);
+  /*height: 60%;*/
+
+}
 
 .subscribe {
   position: relative;
@@ -649,4 +676,33 @@ button.navbar-toggler.navbar-toggler-right {
 .pull-forward{
   position:relative;
   z-index: 2;
+}
+
+.counter {
+    background-color:#000;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.count-text {
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: linear-gradient(180deg, #6303B1, #ff0099);
 }
