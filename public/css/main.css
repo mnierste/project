@@ -706,3 +706,13 @@ button.navbar-toggler.navbar-toggler-right {
     display: table;
     color: linear-gradient(180deg, #6303B1, #ff0099);
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.devicon-size{
+  font-size: 5em;
+}

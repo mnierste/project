@@ -25,24 +25,24 @@
         you can find me outside relaxing with family, working on gardening
         projects, or playing with our pets!</p>
      </div>
-     <div class="row m-t-md">
+     <div class="row m-t-md devicon-size">
        <div class="col-12 text-center">
-         <i class="devicon-html5-plain-wordmark colored" style="Font-size: 8rem;"></i>
-         <i class="devicon-css3-plain-wordmark colored" style="Font-size: 8rem;"></i>
-         <i class="devicon-sass-original colored" style="Font-size: 8rem;"></i>
-         <i class="devicon-bootstrap-plain colored" style="Font-size: 8rem;"></i>
-         <i class="devicon-vuejs-plain-wordmark" style="Font-size: 8rem;"></i>
-         <i class="devicon-nodejs-plain colored" style="Font-size: 8rem;"></i>
+         <i class="devicon-html5-plain-wordmark colored"  ></i>
+         <i class="devicon-css3-plain-wordmark colored"  ></i>
+         <i class="devicon-sass-original colored"  ></i>
+         <i class="devicon-bootstrap-plain colored"  ></i>
+         <i class="devicon-vuejs-plain-wordmark"  ></i>
+         <i class="devicon-nodejs-plain colored"  ></i>
        </div>
      </div>
-     <div class="row m-b-md">
+     <div class="row m-b-md devicon-size">
        <div class="col-12 text-center">
-         <i class="devicon-mysql-plain-wordmark colored" style="Font-size: 8rem;"></i>
-         <i class="devicon-php-plain colored" style="Font-size: 8rem;"></i>
-         <i class="devicon-laravel-plain-wordmark colored" style="Font-size: 8rem;"></i>
-         <i class="devicon-atom-original-wordmark colored" style="Font-size: 8rem;"></i>
-         <i class="devicon-git-plain-wordmark colored" style="Font-size: 8rem;"></i>
-         <i class="devicon-heroku-line-wordmark colored" style="Font-size: 8rem;"></i>
+         <i class="devicon-mysql-plain-wordmark colored"  ></i>
+         <i class="devicon-php-plain colored"  ></i>
+         <i class="devicon-laravel-plain-wordmark colored"  ></i>
+         <i class="devicon-atom-original-wordmark colored"  ></i>
+         <i class="devicon-git-plain-wordmark colored"  ></i>
+         <i class="devicon-heroku-line-wordmark colored"  ></i>
        </div>
      </div>
   </div><!-- galleryrow -->
@@ -116,7 +116,7 @@
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
