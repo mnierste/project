@@ -59,14 +59,14 @@ Route::put('/pizzas/{id}', 'PizzaController@inactive')->middleware('auth');
 Route::delete('/pizzas/{id}', 'PizzaController@destroy')->middleware('auth');
 
 //---- food finder project -------------------------------------------------
-Route::get('foodfinder/foodfinder', 'FoodController@index');
-Route::get('foodfinder/foodfindershow', 'FoodController@show');
+Route::get('/foodfinder', 'FoodController@index');
+Route::get('/foodfindershow', 'FoodController@show');
 
 //---- Sales data dashboard project ----------------------------------------
 Route::get('/dataproject', 'DataController@index');
 
 //---- Vue examples --------------------------------------------------------
-Route::get('projects/demos/tasks','DemoController@showTasks');
+Route::get('/demos/tasks','DemoController@showTasks');
 
 //---- Landing page example ------------------------------------------------
 Route::get('/landingpage', function () {
@@ -86,6 +86,9 @@ Route::get('/contacts/{id}', 'ContactController@show')->middleware('auth');
 Route::post('/contacts/{id}', 'ContactController@update')->middleware('auth');
 //delete individual contact
 Route::delete('/contacts/{id}', 'ContactController@destroy')->middleware('auth');
+
+
+
 
 /*
 |--------------------------------------------------------------------------

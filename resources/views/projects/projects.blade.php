@@ -26,9 +26,9 @@
           <div class="card-body">
             <h5 class="card-title">Pizza Place</h5>
             <p class="card-text">
-              CRUD for Pizzas - Log into the test account to see orders
+              CRUD for Pizzas - <strong>Log into the test account under login</strong> to see orders
             </p>
-            <a href="{{ url('/pizzas') }}" class="btn btn-primary">Pizza Place</a>
+            <a href="{{ url('/pizzas') }}" class="btn btn-primary">View Pizza Place</a>
           </div>
         </div>
 
@@ -44,7 +44,7 @@
             <h5 class="card-title">Food Finder</h5>
             <p class="card-text">API project to provide basic map & restaurant
               information near you</p>
-            <a href="{{ url('/foodfinder') }}" class="btn btn-primary">Food Finder</a>
+            <a href="{{ url('/foodfinder') }}" class="btn btn-primary">View Food Finder</a>
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@
           <div class="card-body">
             <h5 class="card-title">Data Dashboard</h5>
             <p class="card-text">Display fake '19-20 sales data in a dashboard</p>
-            <a href="{{ url('/dataproject') }}" class="btn btn-primary">Data Project</a>
+            <a href="{{ url('/dataproject') }}" class="btn btn-primary">View Data Project</a>
           </div>
         </div>
       </div>
@@ -90,8 +90,8 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">Contacts Crud</h5>
-          <p class="card-text">CRUD for contacts - Log into the test account to see contacts</p>
-          <a href="{{ url('/contacts') }}" class="btn btn-primary">Contacts</a>
+          <p class="card-text">CRUD for contacts - <strong>Log into the test account under login</strong> to see contacts</p>
+          <a href="{{ url('/contacts') }}" class="btn btn-primary">View Contacts</a>
         </div>
       </div>
     </div>
