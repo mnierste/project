@@ -44,6 +44,95 @@ class ContactController extends Controller{
 		return view('/projects/contacts/contactsadd');
 	}
 
+	public function createmultiple(){
+
+	  $file = request('file');
+
+	  // File Details
+	  $filename = $file->getClientOriginalName();
+	  $extension = $file->getClientOriginalExtension();
+	  $tempPath = $file->getRealPath();
+	  $fileSize = $file->getSize();
+	  $mimeType = $file->getMimeType();
+
+	  // Valid File Extensions
+	  $valid_extension = array("csv");
+
+	  // 2MB in Bytes
+	  $maxFileSize = 2097152;
+
+	  // Check file extension
+	  if(in_array(strtolower($extension),$valid_extension)){
+
+	    // Check file size
+	    if($fileSize <= $maxFileSize){
+
+			}
+		}
+		//get data
+		$filedatas = file($tempPath);
+
+		$data = array();
+		//get headers in csv file
+		$headers = array_shift($filedatas);
+		//make array
+		$headers = explode(",", $headers);
+
+		//go through rest of data
+		foreach ($filedatas as $filedata){
+			$data[] = array_combine ($headers , explode(",", $filedata) );
+		}
+		$data = JSON_encode($data);
+
+		return view('/projects/contacts/contactsmultipleadd',[
+			'file' => $file,
+			'data' => $data,
+			'headers' => $headers
+
+		]);
+
+	}
+
+	public function addfile(){
+		//match items on csv headers to correct headers
+		$headers = array();
+		$headers[request('oldfirstname')] = request('1');
+		$headers[request('oldlastname')] = request('2');
+		$headers[request('oldphone')] = request('3');
+		$headers[request('oldemail')] = request('4');
+
+		$keys = array();
+		$keys[request('oldfirstname')] = request('oldfirstname');
+		$keys[request('oldlastname')] = request('oldlastname');
+		$keys[request('oldphone')] = request('oldphone');
+		$keys[request('oldemail')] = request('oldemail');
+		//contact info from csv
+		$filedatas = JSON_decode(request('data'), TRUE);
+
+
+		
+		foreach ($filedatas as $data){
+			//switch headers for contact csv info
+
+
+
+			$newdata =array_combine($headers , $data);
+
+			//add new contact
+			$contact = new \App\Contacts();
+			$contact->FirstName = $newdata['FirstName'];
+			$contact->LastName = $newdata['LastName'];
+			$contact->Email = $newdata['Email'];
+			$contact->Phone = $newdata['Phone'];
+			$contact->save();
+
+		}//end foreach
+
+		return redirect('/contacts')->with('mssg', 'Contacts Added');
+
+	}
+
+
 	public function store(){
 		//use for contacts crud project
 		$contact = new \App\Contacts();
@@ -69,7 +158,7 @@ class ContactController extends Controller{
 		]);
 
 		//dd(request('toppings'));
-		if($contact ==1){
+		if($contact == 1){
 			return redirect('/contacts/'.$id)->with('mssg', 'Thank you for updating the information');
 
 		}else{
@@ -81,6 +170,18 @@ class ContactController extends Controller{
 	public function destroy($id){
 
 		$contact = \App\Contacts::where('Id', $id)->delete();
+
+		return redirect('/contacts')->with('mssgdelete', 'Contact Removed');
+	}
+
+	//deletes records
+	public function deletemultiple($rows){
+
+		foreach($rows as $row){
+			$contact = \App\Contacts::where('Id', $row['Id'])->delete();
+
+		}
+
 
 		return redirect('/contacts')->with('mssgdelete', 'Contact Removed');
 	}

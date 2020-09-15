@@ -539,6 +539,10 @@ nav.navbar {
   background: transparent;
 }
 
+.navbarpadding{
+  padding-left:70px;
+}
+
 /* change navbar-brand color on hover */
 .navbar a.navbar-brand:hover {
   color: black;

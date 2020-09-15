@@ -78,6 +78,12 @@ Route::get('/landingpage', function () {
 Route::get('/contacts', 'ContactController@index')->middleware('auth');
 //add contact
 Route::get('/contacts/addcontact', 'ContactController@create')->middleware('auth');
+//add multi contacts from csv
+Route::post('/contacts/addcontacts', 'ContactController@createmultiple')->middleware('auth');
+//select correct headers
+Route::post('/contacts/addmultiple', 'ContactController@addmultiple')->middleware('auth');
+//add multiple contacts
+Route::post('/contacts/addfile', 'ContactController@addfile')->middleware('auth');
 //save contact
 Route::post('/contacts', 'ContactController@store');
 //see individual contact
@@ -86,6 +92,8 @@ Route::get('/contacts/{id}', 'ContactController@show')->middleware('auth');
 Route::post('/contacts/{id}', 'ContactController@update')->middleware('auth');
 //delete individual contact
 Route::delete('/contacts/{id}', 'ContactController@destroy')->middleware('auth');
+//delete multiple contacts
+Route::delete('/contacts/deletemultiple', 'ContactController@deletemultiple')->middleware('auth');
 
 
 
