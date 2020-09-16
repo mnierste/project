@@ -210,7 +210,7 @@ $Jsoncontacts = JSON_encode($all_contacts);
         });
         //submit action for mass delete
         //alert(massDelete);
-        var url = 'http://localhost:8888/project/public/contacts/deletemultiple';
+        var url = 'http://maxnierste.herokuapp.com/contacts/deletemultiple';
         var form = $('<form action="' + url + '" method="post">' +
           '@csrf ' +
           '@method("DELETE")' +
@@ -218,10 +218,6 @@ $Jsoncontacts = JSON_encode($all_contacts);
           '</form>');
         $('body').append(form);
         form.submit();
-
-
-        //$.post("http://maxnierste.herokuapp.com/contacts/deletemultiple", massDelete);
-
 
     });
   });
