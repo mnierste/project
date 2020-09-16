@@ -19,16 +19,14 @@
       <div class="col-md-4">
       <!--project 1-->
         <div class="card1 p-t-sm">
-          <div class="projectpPlaceholder">
+          <div class="projectpPlaceholder5">
             <img class="card-img-top responsive"
-            src="{{ asset('/images/PizzaProjectLogo.png') }}" alt="pizza place app">
+            src="{{ asset('/images/contacts.png') }}" alt="contacts crud">
           </div>
           <div class="card-body">
-            <h5 class="card-title">Pizza Place</h5>
-            <p class="card-text">
-              CRUD for Pizzas - <strong>Log into the test account under login</strong> to see orders
-            </p>
-            <a href="{{ url('/pizzas') }}" class="btn btn-primary">View Pizza Place</a>
+            <h5 class="card-title">Contacts Crud</h5>
+            <p class="card-text">CRUD for contacts - <strong>Log into the test account under login</strong> to see contacts</p>
+            <a href="{{ url('/contacts') }}" class="btn btn-primary">View Contacts</a>
           </div>
         </div>
 
@@ -36,17 +34,17 @@
       <div class="col-md-4">
       <!-- project 2-->
         <div class="card1 p-t-sm">
-          <div class="projectpPlaceholder2">
+          <div class="projectpPlaceholder6">
             <img class="card-img-top responsive"
-            src="{{ asset('/images/foodfinder.png') }}" alt="food finder app">
+            src="{{ asset('/images/landingpage.png') }}" alt="landingpage">
           </div>
           <div class="card-body">
-            <h5 class="card-title">Food Finder</h5>
-            <p class="card-text">API project to provide basic map & restaurant
-              information near you</p>
-            <a href="{{ url('/foodfinder') }}" class="btn btn-primary">View Food Finder</a>
+            <h5 class="card-title">Landing Page</h5>
+            <p class="card-text">Basic Landing page with different css border styles</p>
+            <a href="{{ url('/landingpage') }}" class="btn btn-primary">Landing Page</a>
           </div>
         </div>
+
       </div>
       <div class="col-md-4">
         <!-- project 3-->
@@ -82,33 +80,36 @@
     </div>
 
     <div class="col-md-4">
-
       <div class="card1 p-t-sm">
-        <div class="projectpPlaceholder5">
+        <div class="projectpPlaceholder">
           <img class="card-img-top responsive"
-          src="{{ asset('/images/contacts.png') }}" alt="contacts crud">
+          src="{{ asset('/images/PizzaProjectLogo.png') }}" alt="pizza place app">
         </div>
         <div class="card-body">
-          <h5 class="card-title">Contacts Crud</h5>
-          <p class="card-text">CRUD for contacts - <strong>Log into the test account under login</strong> to see contacts</p>
-          <a href="{{ url('/contacts') }}" class="btn btn-primary">View Contacts</a>
+          <h5 class="card-title">Pizza Place</h5>
+          <p class="card-text">
+            CRUD for Pizzas - <strong>Log into the test account under login</strong> to see orders
+          </p>
+          <a href="{{ url('/pizzas') }}" class="btn btn-primary">View Pizza Place</a>
         </div>
       </div>
+
     </div>
 
     <div class="col-md-4">
-
       <div class="card1 p-t-sm">
-        <div class="projectpPlaceholder6">
+        <div class="projectpPlaceholder2">
           <img class="card-img-top responsive"
-          src="{{ asset('/images/landingpage.png') }}" alt="landingpage">
+          src="{{ asset('/images/foodfinder.png') }}" alt="food finder app">
         </div>
         <div class="card-body">
-          <h5 class="card-title">Landing Page</h5>
-          <p class="card-text">Basic Landing page with different css border styles</p>
-          <a href="{{ url('/landingpage') }}" class="btn btn-primary">Landing Page</a>
+          <h5 class="card-title">Food Finder</h5>
+          <p class="card-text">API project to provide basic map & restaurant
+            information near you</p>
+          <a href="{{ url('/foodfinder') }}" class="btn btn-primary">View Food Finder</a>
         </div>
       </div>
+
     </div>
   </div>
 </div>
