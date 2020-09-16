@@ -720,3 +720,20 @@ button.navbar-toggler.navbar-toggler-right {
 .devicon-size{
   font-size: 5em;
 }
+
+.more {
+  font-size: 1.5em;
+  color:green;
+}
+
+.hidden{
+  display: none;
+}
+
+td.details-control {
+    background: url('../images/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('../images/details_close.png') no-repeat center center;
+}

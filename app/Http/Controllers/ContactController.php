@@ -110,7 +110,7 @@ class ContactController extends Controller{
 		$filedatas = JSON_decode(request('data'), TRUE);
 
 
-		
+
 		foreach ($filedatas as $data){
 			//switch headers for contact csv info
 
@@ -170,20 +170,22 @@ class ContactController extends Controller{
 	public function destroy($id){
 
 		$contact = \App\Contacts::where('Id', $id)->delete();
-
+		
 		return redirect('/contacts')->with('mssgdelete', 'Contact Removed');
 	}
 
 	//deletes records
-	public function deletemultiple($rows){
+	public function deletemultiple(){
+
+		$rows = request('MassIds');
+		$rows = explode(",", $rows);
 
 		foreach($rows as $row){
-			$contact = \App\Contacts::where('Id', $row['Id'])->delete();
+			$contact = \App\Contacts::where('Id', $row)->delete();
 
 		}
 
-
-		return redirect('/contacts')->with('mssgdelete', 'Contact Removed');
+		return redirect('/contacts')->with('mssgdelete', 'Contacts Removed');
 	}
 
 }

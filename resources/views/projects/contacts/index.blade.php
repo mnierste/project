@@ -7,10 +7,15 @@
 @endsection
 
 @section('content')
+@php
+
+$Jsoncontacts = JSON_encode($all_contacts);
+
+@endphp
 
 
-  <div class="content coverImage p-b-md">
-    <div class="p-b-md p-t-md sectionBackgroundGray">
+  <div class="content sectionBackgroundGray p-b-md">
+    <div class="p-b-md p-t-md coverImage ">
   		<div class ="row" >
   			<div class="col-md-12 aboutTitle ">
   				<h1>Contacts</h1>
@@ -83,27 +88,30 @@
 
 
 			<div class="container m-t-md m-b-md">
-
+        <div>
+          <h5>Contacts Table made with datatables and PHP</h5>
+        </div>
 				<table id="contactsTable" class="table table-bordered table-hover">
 
 					<thead class="sectionBackgroundGray">
 						<th class="text-center">#</th>
 						<th class="text-center">First Name</th>
             <th class="text-center">Last Name</th>
-						<th class="text-center">Email</th>
-						<th class="text-center">Phone</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Phone</th>
 						<th class="text-center">Edit</th>
             <th class="text-center"></th>
+
 					</thead>
 					<tbody>
 
 					@foreach ($all_contacts as $contact)
 						<tr>
 							<td>{{ $loop->iteration  }} </td>
-							<td>{{ $contact->FirstName }} </td>
+              <td>{{ $contact->FirstName }} </td>
               <td>{{ $contact->LastName }}</td>
-							<td>{{ $contact->Email }} </td>
-							<td>{{ $contact->Phone }} </td>
+              <td> {{ $contact->Email }} </td>
+              <td> {{ $contact->Phone }} </td>
 							<td>
 								<div class="row justify-content-center form-group">
                   <div class="btn-group" role="group">
@@ -125,7 +133,9 @@
                 <input name="deleteMultiple" type="checkbox" value="{{ $contact->Id }}">
               </td>
 					  </tr>
+
 					@endforeach
+
 					</tbody>
 				</table>
 
@@ -135,40 +145,161 @@
       </button>
 
 		</div><!--content-->
+
+    <div class="container table-background m-t-md">
+      <div class="container m-t-md m-b-md">
+        <div>
+          <h5>Contacts Table made with datatables and JS</h5>
+        </div>
+        <table id="example" class="display" style="width:100%">
+          <thead>
+              <tr>
+                  <th>#</th>
+                  <th></th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+
+              </tr>
+          </thead>
+          <tfoot>
+              <tr>
+                  <th>#</th>
+                  <th></th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+
+              </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
 	</div>
 
 @endsection
 
 @section('scripts')
-  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready( function () {
-        $('#contactsTable').DataTable();
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script>
+
+  $('#contactsTable').DataTable( {
+    responsive: true,
+    columnDefs: [
+      { responsivePriority: 1, targets: 0 },
+      { responsivePriority: 3, targets: 4 },
+      { responsivePriority: 2, targets: -1 }
+    ]
+  } );
+
+</script>
+<script>
+  //name of the file appear on select
+  $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+  });
+</script>
+
+<script>
+//multi select box for mass delete
+  $(document).ready(function() {
+    $("#massDeleteButton").click(function(){
+        var massDelete = [];
+        $.each($("input[name='deleteMultiple']:checked"), function(){
+            massDelete.push($(this).val());
+        });
+        //submit action for mass delete
+        alert(massDelete);
+        var url = 'http://localhost:8888/project/public/contacts/deletemultiple';
+        var form = $('<form action="' + url + '" method="post">' +
+          '@csrf ' +
+          '@method("DELETE")' +
+          '<input type="text" name="MassIds" value="' + massDelete + '" />' +
+          '</form>');
+        $('body').append(form);
+        form.submit();
+
+
+        //$.post("http://maxnierste.herokuapp.com/contacts/deletemultiple", massDelete);
+
+
+    });
+  });
+</script>
+
+
+
+<script>
+
+var dataSet = {!! $all_contacts !!};
+
+/* Formatting function for row details */
+function format ( d ) {
+    // `d` is the original data object for the row
+    return '<table class="col-12" cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+              '<tr>'+
+                  '<td>Phone:</td>'+
+                  '<td>'+d.Phone+'</td>'+
+              '</tr>'+
+              '<tr>'+
+                  '<td>Email:</td>'+
+                  '<td>'+d.Email+'</td>'+
+              '</tr>'+
+              '<tr>' +
+                '<td>Edit/Delete:</td>' +
+                '<td><div class="row justify-content-center form-group">' +
+                  '<div class="btn-group" role="group">' +
+                    '<a href="http://maxnierste.herokuapp.com/contacts/' + d.Id +'") }}">' +
+                      '<i class="aboutTitle fa fa-edit btn btn-warning"></i>' +
+                    '</a>' +
+                    '<form action="http://maxnierste.herokuapp.com/contacts/' + d.Id +'") }}" method="POST">' +
+                      '@csrf' +
+                      '@method("DELETE")' +
+                      '<button type="submit" value="delete" class="btn btn-danger btn-block" >' +
+                        '<i class="aboutTitle fa fa-trash"></i>' +
+                      '</button> ' +
+                    '</form>'+
+                  '</div>' +
+                '</div></td>' +
+              '</tr>' +
+          '</table>';
+}
+
+$(document).ready(function() {
+  var table = $('#example').DataTable( {
+        "data": dataSet,
+        "columns": [
+            {"data": "Id"},
+            {
+              "className":      'details-control',
+              "orderable":      false,
+              "data":           null,
+              "defaultContent": ''
+            },
+            { "data": "FirstName" },
+            { "data": "LastName" },
+
+        ],
+        "order": [[0, 'asc']]
     } );
-  </script>
-  <script>
-    //name of the file appear on select
-    $(".custom-file-input").on("change", function() {
-      var fileName = $(this).val().split("\\").pop();
-      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-    });
-  </script>
 
-  <script>
-  //multi select box for mass delete
-    $(document).ready(function() {
-      $("#massDeleteButton").click(function(){
-          var massDelete = [];
-          $.each($("input[name='deleteMultiple']:checked"), function(){
-              massDelete.push($(this).val());
-          });
-          //submit action for mass delete
-          alert(massDelete);
+    // Add event listener for opening and closing details
+    $('#example tbody').on('click', 'td.details-control', function () {
+      var tr = $(this).closest('tr');
+      var row = table.row(tr);
 
-
-
-      });
-    });
+      if ( row.child.isShown() ) {
+          // This row is already open - close it
+          row.child.hide();
+          tr.removeClass('shown');
+      }
+      else {
+          // Open this row
+          row.child( format(row.data()) ).show();
+          tr.addClass('shown');
+      }
+    } );
+} );
 </script>
 
 @endsection
