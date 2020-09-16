@@ -209,7 +209,7 @@ $Jsoncontacts = JSON_encode($all_contacts);
             massDelete.push($(this).val());
         });
         //submit action for mass delete
-        alert(massDelete);
+        //alert(massDelete);
         var url = 'http://localhost:8888/project/public/contacts/deletemultiple';
         var form = $('<form action="' + url + '" method="post">' +
           '@csrf ' +
