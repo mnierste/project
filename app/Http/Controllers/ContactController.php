@@ -73,15 +73,24 @@ class ContactController extends Controller{
 		$filedatas = file($tempPath);
 
 		$data = array();
+
+
+
 		//get headers in csv file
 		$headers = array_shift($filedatas);
-		//make array
+		//remove any \n or others
+		$headers = trim(preg_replace('/\s\s+/', ' ', $headers));
+
 		$headers = explode(",", $headers);
 
 		//go through rest of data
 		foreach ($filedatas as $filedata){
+			//remove any \n or others
+			$filedata = trim(preg_replace('/\s\s+/', ' ', $filedata));
 			$data[] = array_combine ($headers , explode(",", $filedata) );
+
 		}
+
 		$data = JSON_encode($data);
 
 		return view('/projects/contacts/contactsmultipleadd',[
@@ -110,14 +119,22 @@ class ContactController extends Controller{
 		$filedatas = JSON_decode(request('data'), TRUE);
 
 
-
+		/* testing
+		$deets = array();
+		$deets['keys'] = $keys;
+		$deets['headers'] =$headers;
+		$deets['in'] = array();
+		$deets['out'] = array();
+		*/
 		foreach ($filedatas as $data){
 			//switch headers for contact csv info
 
 			foreach($data as $key => $val){
-				if(in_array($key, $keys)){
 
+				if(in_array($key, $keys)){
+					//$deets['in'][]=$key." : ".$val;
 				}else{
+					//$deets['out'][]=$key." : ".$val;
 					unset($data[$key]);
 				}
 			}
@@ -137,7 +154,6 @@ class ContactController extends Controller{
 				$contact->Phone = $newdata['Phone'];
 				$contact->save();
 			}else{
-				
 				//update contact
 				$contact = \App\Contacts::where('Email', request('email'))->update([
 					'FirstName' => request('firstname'),

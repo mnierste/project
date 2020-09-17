@@ -58,10 +58,8 @@
                 </div>
                 <div class="col-6">
                   <select name="1" class="form-control">
-                    <option value="FirstName">First Name</option>
-                    <option value="LastName">Last Name</option>
-                    <option value="Phone">Phone</option>
-                    <option value="Email">Email</option>
+                    <option selected value="FirstName">First Name</option>
+
                   </select>
 
                 </div>
@@ -84,10 +82,9 @@
                 </div>
                 <div class="col-6">
                   <select name="2" class="form-control">
-                    <option value="FirstName">First Name</option>
+
                     <option selected value="LastName">Last Name</option>
-                    <option value="Phone">Phone</option>
-                    <option value="Email">Email</option>
+
                   </select>
 
                 </div>
@@ -111,10 +108,8 @@
                 </div>
                 <div class="col-6">
                   <select name="3" class="form-control">
-                    <option value="FirstName">First Name</option>
-                    <option value="LastName">Last Name</option>
-                    <option selected value="Phone">Phone</option>
-                    <option value="Email">Email</option>
+
+                    <option selected value="Email">Email</option>
                   </select>
 
                 </div>
@@ -138,10 +133,9 @@
                 </div>
                 <div class="col-6">
                   <select name="4" class="form-control">
-                    <option value="FirstName">First Name</option>
-                    <option value="LastName">Last Name</option>
-                    <option value="Phone">Phone</option>
-                    <option selected value="Email">Email</option>
+                  
+                    <option selected value="Phone">Phone</option>
+
                   </select>
                 </div>
               </div>
