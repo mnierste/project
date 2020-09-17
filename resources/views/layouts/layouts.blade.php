@@ -6,6 +6,7 @@
 
         <title>@yield('title')</title>
 
+        <link rel="shortcut icon" href="{{ asset('images/favicon-16x16.png') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!-- fa -->
