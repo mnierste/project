@@ -114,17 +114,40 @@ class ContactController extends Controller{
 		foreach ($filedatas as $data){
 			//switch headers for contact csv info
 
+			foreach($data as $key => $val){
+				if(in_array($key, $keys)){
 
+				}else{
+					unset($data[$key]);
+				}
+			}
 
 			$newdata =array_combine($headers , $data);
 
-			//add new contact
-			$contact = new \App\Contacts();
-			$contact->FirstName = $newdata['FirstName'];
-			$contact->LastName = $newdata['LastName'];
-			$contact->Email = $newdata['Email'];
-			$contact->Phone = $newdata['Phone'];
-			$contact->save();
+			$contact = \App\Contacts::where('Email', $newdata['Email'])->get();
+
+			if($contact == "[]"){
+
+				//add new contact
+				$contact = new \App\Contacts();
+
+				$contact->FirstName = $newdata['FirstName'];
+				$contact->LastName = $newdata['LastName'];
+				$contact->Email = $newdata['Email'];
+				$contact->Phone = $newdata['Phone'];
+				$contact->save();
+			}else{
+				
+				//update contact
+				$contact = \App\Contacts::where('Email', request('email'))->update([
+					'FirstName' => request('firstname'),
+					'LastName' => request('lastname'),
+					'Email' => request('email'),
+					'Phone' => request('phone')
+
+				]);
+
+			}
 
 		}//end foreach
 
@@ -134,17 +157,28 @@ class ContactController extends Controller{
 
 
 	public function store(){
-		//use for contacts crud project
-		$contact = new \App\Contacts();
-		//input in form
-		$contact->FirstName = request('firstname');
-		$contact->LastName = request('lastname');
-		$contact->Email = request('email');
-		$contact->Phone = request('phone');
 
-		$contact->save();
 
-		return redirect('/contacts')->with('mssg', 'Contact Added');
+		$contact = \App\Contacts::where('Email', request('email'))->get();
+
+		if($contact =="[]"){
+			//no data
+			$contact = new \App\Contacts();
+			//input in form
+			$contact->FirstName = request('firstname');
+			$contact->LastName = request('lastname');
+			$contact->Email = request('email');
+			$contact->Phone = request('phone');
+
+			$contact->save();
+
+			return redirect('/contacts')->with('mssg', 'Contact Added');
+		}else{
+
+			return redirect('/contacts')->with('mssgdelete', 'Contact with that email already Exists');
+
+		}
+
 	}
 
 	public function update($id){
@@ -170,7 +204,7 @@ class ContactController extends Controller{
 	public function destroy($id){
 
 		$contact = \App\Contacts::where('Id', $id)->delete();
-		
+
 		return redirect('/contacts')->with('mssgdelete', 'Contact Removed');
 	}
 

@@ -51,10 +51,10 @@ $Jsoncontacts = JSON_encode($all_contacts);
                 <h5 class="">Add Multiple Contacts</h5>
               </div>
               <div class="col-12">
-                <form action="{{ url('contacts/addcontacts') }}" method="post" enctype="multipart/form-data">
+                <form id="multipleform" action="{{ url('contacts/addcontacts') }}" method="post" enctype="multipart/form-data">
                   @csrf
                   <div class="custom-file m-b-sm">
-                    <input type="file" name="file" class="custom-file-input" id="customFile">
+                    <input accept=".csv" required type="file" name="file" class="custom-file-input" id="customFile">
                     <label class="custom-file-label float-left" for="customFile">Choose CSV</label>
                   </div>
                   <button id="addContacts" class="btn btn-primary" type="submit" name="submit">
@@ -297,5 +297,6 @@ $(document).ready(function() {
     } );
 } );
 </script>
+
 
 @endsection
