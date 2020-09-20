@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Contacts;
+
+use Illuminate\Support\Facades\Auth;
+
 class ContactController extends Controller{
 
 	/*
@@ -25,8 +28,9 @@ class ContactController extends Controller{
 	*/
 
 	function index(){
-
-		$contacts = \App\Contacts::where('active', '1')->get();
+		$user = Auth::user();
+		
+		$contacts = \App\Contacts::where('UserID', $user->userID)->get();
 
 		return view('projects/contacts/index', ['all_contacts' => $contacts]);
 	}
@@ -73,8 +77,6 @@ class ContactController extends Controller{
 		$filedatas = file($tempPath);
 
 		$data = array();
-
-
 
 		//get headers in csv file
 		$headers = array_shift($filedatas);
@@ -142,7 +144,7 @@ class ContactController extends Controller{
 			$newdata =array_combine($headers , $data);
 
 			$contact = \App\Contacts::where('Email', $newdata['Email'])->get();
-
+			$userId = Auth::user()->userID;
 			if($contact == "[]"){
 
 				//add new contact
@@ -152,6 +154,7 @@ class ContactController extends Controller{
 				$contact->LastName = $newdata['LastName'];
 				$contact->Email = $newdata['Email'];
 				$contact->Phone = $newdata['Phone'];
+				$contact->UserID = $userId;
 				$contact->save();
 			}else{
 				//update contact
@@ -159,8 +162,8 @@ class ContactController extends Controller{
 					'FirstName' => request('firstname'),
 					'LastName' => request('lastname'),
 					'Email' => request('email'),
-					'Phone' => request('phone')
-
+					'Phone' => request('phone'),
+					'UserID' => $userId
 				]);
 
 			}
@@ -176,6 +179,7 @@ class ContactController extends Controller{
 
 
 		$contact = \App\Contacts::where('Email', request('email'))->get();
+		$userId = Auth::user()->userID;
 
 		if($contact =="[]"){
 			//no data
@@ -185,7 +189,7 @@ class ContactController extends Controller{
 			$contact->LastName = request('lastname');
 			$contact->Email = request('email');
 			$contact->Phone = request('phone');
-
+			$contact->UserID = $userId;
 			$contact->save();
 
 			return redirect('/contacts')->with('mssg', 'Contact Added');
@@ -198,13 +202,13 @@ class ContactController extends Controller{
 	}
 
 	public function update($id){
-
+		$userId = Auth::user()->userID;
 		$contact = \App\Contacts::where('Id', $id)->update([
 			'FirstName' => request('firstname'),
 			'LastName' => request('lastname'),
 			'Email' => request('email'),
-			'Phone' => request('phone')
-
+			'Phone' => request('phone'),
+			'UserId' => $userId
 		]);
 
 		//dd(request('toppings'));
@@ -237,5 +241,6 @@ class ContactController extends Controller{
 
 		return redirect('/contacts')->with('mssgdelete', 'Contacts Removed');
 	}
+
 
 }

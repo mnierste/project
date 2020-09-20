@@ -18,11 +18,11 @@ $Jsoncontacts = JSON_encode($all_contacts);
     <div class="p-b-md p-t-md coverImage ">
   		<div class ="row" >
   			<div class="col-md-12 aboutTitle ">
-  				<h1>Contacts</h1>
+  				<h1 style="text-shadow: 2px 2px black;">Contacts</h1>
   			</div>
       </div>
       <div class="col-12">
-			  <h5 class="aboutTitle">Basic Crud contacts table written with php larvel
+			  <h5 style="text-shadow: 2px 2px black;" class="aboutTitle">Basic Crud contacts table written with php larvel
           blade templates & Mysql.</h5>
       </div>
       <div class="container">
@@ -100,7 +100,9 @@ $Jsoncontacts = JSON_encode($all_contacts);
             <th class="text-center">Email</th>
             <th class="text-center">Phone</th>
 						<th class="text-center">Edit</th>
-            <th class="text-center"></th>
+            <th class="text-center">All
+              <input name="select_all" id="select_all" type="checkbox" >
+            </th>
 
 					</thead>
 					<tbody>
@@ -130,7 +132,7 @@ $Jsoncontacts = JSON_encode($all_contacts);
 								</div>
 							</td>
               <td>
-                <input name="deleteMultiple" type="checkbox" value="{{ $contact->Id }}">
+                <input name="deleteMultiple" type="checkbox" class="checkboxes" value="{{ $contact->Id }}">
               </td>
 					  </tr>
 
@@ -201,6 +203,21 @@ $Jsoncontacts = JSON_encode($all_contacts);
 </script>
 
 <script>
+//select all checkboxes
+$('#select_all').click(function(event) {
+  if(this.checked) {
+      // Iterate each checkbox
+      $('.checkboxes').each(function() {
+          this.checked = true;
+      });
+  }
+  else {
+    $('.checkboxes').each(function() {
+          this.checked = false;
+      });
+  }
+});
+
 //multi select box for mass delete
   $(document).ready(function() {
     $("#massDeleteButton").click(function(){
@@ -211,6 +228,7 @@ $Jsoncontacts = JSON_encode($all_contacts);
         //submit action for mass delete
         //alert(massDelete);
         var url = 'http://maxnierste.herokuapp.com/contacts/deletemultiple';
+
         var form = $('<form action="' + url + '" method="post">' +
           '@csrf ' +
           '@method("DELETE")' +
