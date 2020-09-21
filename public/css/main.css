@@ -383,10 +383,31 @@ body {
   top:-100px;
   left: 10px
 }
+
+.hide{
+  display:none;
+}
+
+.pizzaMaker {
+
+  position:absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.pizzaMakerSauce {
+  padding-left:10%;
+  padding-top:10%;
+}
+
+.pizzaMakerCheese {
+  padding-left:5%;
+  padding-top:5%;
+}
+
 .align-left{
   text-align:left;
 }
-
 
 .projectpPlaceholder {
   height: 200px;
