@@ -23,7 +23,7 @@ class EmailController extends Controller{
 	|--------------------------------------------------------------------------
 	*/
   public function index(){
-     return view('/contactme');
+     return response()->view('/contactme')->setStatusCode(200);
 	}
 
   #store in db function right now but email soon

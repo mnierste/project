@@ -538,6 +538,26 @@ body {
   /* margin-top: -10%; */
 }
 
+.projectpPlaceholder7 {
+  height: 200px;
+  width:200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  overflow:hidden;
+  background-color:#999;
+}
+
+.projectpPlaceholder7 img {
+  position: absolute;
+  display: block;
+  height: 200px;
+  width: auto;
+  margin-left: -105px;
+  /* margin-top: -10%; */
+}
 
 #totalChart{
   height:250px !important;

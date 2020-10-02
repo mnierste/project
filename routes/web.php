@@ -96,7 +96,13 @@ Route::post('/contacts/{id}', 'ContactController@update')->middleware('auth');
 Route::delete('/contacts/{id}', 'ContactController@destroy')->middleware('auth');
 
 
-
+//---- API Page -------------------------------------------------------
+//main page for search or add
+Route::get('/apipage', 'ApipageController@index');
+//search results for movie
+Route::post('/apipageresults', 'ApipageController@search');
+//add Title get response
+Route::post('/apipageadd', 'ApipageController@add');
 
 /*
 |--------------------------------------------------------------------------

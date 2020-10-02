@@ -34,16 +34,17 @@
       <div class="col-md-4">
       <!-- project 2-->
         <div class="card1 p-t-sm">
-          <div class="projectpPlaceholder6">
+          <div class="projectpPlaceholder7">
             <img class="card-img-top responsive"
-            src="{{ asset('/images/landingpage.png') }}" alt="landingpage">
+            src="{{ asset('/images/APIproject.png') }}" alt="Movie finder app">
           </div>
           <div class="card-body">
-            <h5 class="card-title">Landing Page</h5>
-            <p class="card-text">Basic Landing page with different css border styles</p>
-            <a href="{{ url('/landingpage') }}" class="btn btn-primary">Landing Page</a>
+            <h5 class="card-title">Api Movie Finder /Adder</h5>
+            <p class="card-text">API project to get and push data with external APIs</p>
+            <a href="{{ url('/apipage') }}" class="btn btn-primary">View API Project</a>
           </div>
         </div>
+
 
       </div>
       <div class="col-md-4">
@@ -67,16 +68,17 @@
     <div class="col-md-4">
       <!-- project 4-->
       <div class="card1 p-t-sm">
-        <div class="projectpPlaceholder4" style="padding-top:60px;">
+        <div class="projectpPlaceholder6">
           <img class="card-img-top responsive"
-          src="{{ asset('/images/vuejs.png') }}" alt="vue examples"></img>
+          src="{{ asset('/images/landingpage.png') }}" alt="landingpage">
         </div>
         <div class="card-body">
-          <h5 class="card-title">Vue Js Examples</h5>
-          <p class="card-text"> Simple examples in Vue js</p>
-          <a href="{{ url('/demos/tasks') }}" class="btn btn-primary">View the Vue</a>
+          <h5 class="card-title">Landing Page</h5>
+          <p class="card-text">Basic Landing page with different css border styles</p>
+          <a href="{{ url('/landingpage') }}" class="btn btn-primary">View Landing Page</a>
         </div>
       </div>
+
     </div>
 
     <div class="col-md-4">
@@ -97,19 +99,18 @@
     </div>
 
     <div class="col-md-4">
+
       <div class="card1 p-t-sm">
-        <div class="projectpPlaceholder2">
+        <div class="projectpPlaceholder4" style="padding-top:60px;">
           <img class="card-img-top responsive"
-          src="{{ asset('/images/foodfinder.png') }}" alt="food finder app">
+          src="{{ asset('/images/vuejs.png') }}" alt="vue examples"></img>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Food Finder</h5>
-          <p class="card-text">API project to provide basic map & restaurant
-            information near you</p>
-          <a href="{{ url('/foodfinder') }}" class="btn btn-primary">View Food Finder</a>
+          <h5 class="card-title">Vue Js Examples</h5>
+          <p class="card-text"> Simple examples in Vue js</p>
+          <a href="{{ url('/demos/tasks') }}" class="btn btn-primary">View the Vue</a>
         </div>
       </div>
-
     </div>
   </div>
 </div>
