@@ -46,15 +46,15 @@ Route::get('/pizzas', 'PizzaController@index');
 //order pizza
 Route::get('/pizzas/create', 'PizzaController@create');
 //see orders
-Route::get('/pizzaorders', 'PizzaController@orders')->middleware('auth');
+Route::get('/pizzaorders', 'PizzaController@orders');
 //save pizza
 Route::post('/pizzas', 'PizzaController@store');
 //show individual pizza
-Route::get('/pizzas/{id}', 'PizzaController@show')->middleware('auth');
+Route::get('/pizzas/{id}', 'PizzaController@show');
 //edit individual pizza
-Route::post('/pizzas/{id}', 'PizzaController@update')->middleware('auth');
+Route::post('/pizzas/{id}', 'PizzaController@update');
 //inactive individual pizza
-Route::put('/pizzas/{id}', 'PizzaController@inactive')->middleware('auth');
+Route::put('/pizzas/{id}', 'PizzaController@inactive');
 //delete individual pizza
 Route::delete('/pizzas/{id}', 'PizzaController@destroy')->middleware('auth');
 
@@ -103,6 +103,12 @@ Route::get('/apipage', 'ApipageController@index');
 Route::post('/apipageresults', 'ApipageController@search');
 //add Title get response
 Route::post('/apipageadd', 'ApipageController@add');
+
+//---- POP up page ------------------------------------------------------
+//---- Sales data dashboard project ----------------------------------------
+Route::get('/popups', function () {
+    return view('/projects/popups/index');
+});
 
 /*
 |--------------------------------------------------------------------------

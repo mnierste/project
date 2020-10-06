@@ -133,6 +133,31 @@ body {
   background-image: linear-gradient(360deg, #6303B1, #ff0099);
 }
 
+.sectionBackgroundYellow {
+  background-image: linear-gradient(145deg, #DBA506, #fff);
+}
+
+.btnYellow {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    color: #fff;
+    background-image: linear-gradient(145deg, #DBA506, #fff);
+    border-color: #fff;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 
 .jumbotron {
   /*background: #999;*/
@@ -417,17 +442,17 @@ body {
   border-radius: 50%;
   position: relative;
   background-size: cover;
-  overflow:hidden;
+
   background-color:#999;
 }
 
 .projectpPlaceholder img {
-  position: absolute;
-  display: block;
-  height: 180px;
-  width:auto;
-  /*margin-left: -90px;*/
-  margin-top: 8px;
+  /*position: absolute;*/
+  /*display: block;*/
+  height: 200px;
+  width: auto;
+  margin-left: -11px;
+  margin-top: -2px;
 
 }
 
@@ -440,7 +465,7 @@ body {
   position: relative;
   background-size: cover;
   overflow:hidden;
-  background-color:#999;
+  background-color:#fff;
 }
 .projectpPlaceholder2 img {
   position: absolute;
@@ -483,7 +508,7 @@ body {
   position: relative;
   background-size: cover;
   overflow:hidden;
-  background-color:#54b883;
+  background-image:linear-gradient(360deg, #54b883, #87CDA8);
 }
 
 .projectpPlaceholder4 img {
@@ -555,8 +580,29 @@ body {
   display: block;
   height: 200px;
   width: auto;
-  margin-left: -105px;
+  margin-left: -55px;
   /* margin-top: -10%; */
+}
+
+.projectpPlaceholder8 {
+  height: 200px;
+  width:200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  overflow:hidden;
+  background-color:#52c4d3;
+}
+
+.projectpPlaceholder8 img {
+  position: absolute;
+  display: block;
+  height: 140px;
+  width: auto;
+  margin-left: -55px;
+  margin-top: 30px;
 }
 
 #totalChart{
@@ -777,4 +823,38 @@ td.details-control {
 }
 tr.shown td.details-control {
     background: url('../images/details_close.png') no-repeat center center;
+}
+
+.primary{
+  background-color:#007bff;
+  color:white;
+}
+
+
+.modal-dialog-slideout {
+  min-height: 100%; margin: 0 0 0 auto;background: #fff;
+}
+.modal.fade .modal-dialog.modal-dialog-slideout {
+  -webkit-transform: translate(100%,0)scale(1);
+  transform: translate(100%,0)scale(1);
+}
+.modal.fade.show .modal-dialog.modal-dialog-slideout {
+  -webkit-transform: translate(0,0);
+  transform: translate(0,0);
+  display: flex;
+  align-items: stretch;
+  -webkit-box-align:
+  stretch;height: 100%;
+}
+.modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body{
+  overflow-y: auto;overflow-x: hidden;
+}
+.modal-dialog-slideout .modal-content{
+  border: 0;
+}
+.modal-dialog-slideout .modal-header, .modal-dialog-slideout .modal-footer {
+  height: 69px; display: block;
+}
+.modal-dialog-slideout .modal-header h5 {
+  float:left;
 }

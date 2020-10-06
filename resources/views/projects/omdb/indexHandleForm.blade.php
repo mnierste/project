@@ -4,10 +4,16 @@
 
 @section('content')
 
+<style>
+body{
+  color:black;
+}
+</style>
+<div style="background-image:linear-gradient(245deg, #fff, #333);">
   <div class="container">
 
-    <div class="card">
-      <div class="card-header">
+    <div class="card m-t-md m-b-md">
+      <div class="card-header sectionBackgroundYellow">
         <div class="row">
           <div class="col-md-4 col-sm-12">
             @if(isset($response->Poster))
@@ -49,4 +55,5 @@
       </div>
     </div>
   </div>
+</div>
 @endsection
