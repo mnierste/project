@@ -47,7 +47,7 @@
 </div>
 
 <!-- 2nd modal-->
-<div id="Modal2" class="modal fade" role="dialog" data-value="Modal3">
+<div id="Modal2" class="modal fade" role="dialog" data-value="Modal3" data-backdrop="static">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header primary">
@@ -55,7 +55,7 @@
       </div>
       <div class="modal-body">
         <h5>This is the second of 7 popup Modals...<h5>
-          <small>Not sure why anyone would want 7...</small>
+          <p>Not sure why anyone would want 7 modals to pop up like this...</p>
       </div>
       <div class="modal-footer">
         <button onclick="openNextModal(this)" name="Modal2|Modal3" type="button" class="btn btn-primary">Continue</button>
@@ -65,7 +65,7 @@
   </div>
 </div>
 <!-- 3rd modal-->
-<div id="Modal3" class="modal fade" role="dialog" data-value="Modal4">
+<div id="Modal3" class="modal fade" role="dialog" data-value="Modal4" data-backdrop="static">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header primary">
@@ -76,7 +76,7 @@
         <p>Example of buttons and set up used for this process.</p>
         <ul>
           <li>onclick="openNextModal(this)"</li>
-          <li>name="Modal4|Modal5"</li>
+          <li>name="Modal3|Modal4"</li>
         </ul>
         <p><pre><code>&lt;button type="button" onclick="openNextModal(this)" name="Modal4|Modal5" &gt; Next &lt;/button &gt;</code></pre></p>
       </div>
@@ -89,7 +89,7 @@
 
 <!-- 4th modal small right side-->
 
-<div class="modal fade" id="Modal4" data-value="Modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+<div class="modal fade" id="Modal4" data-value="Modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog modal-dialog-slideout modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header primary">
@@ -108,7 +108,7 @@
 </div>
 
 <!-- 5th modal md right side-->
-<div class="modal fade" id="Modal5" data-value="Modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+<div class="modal fade" id="Modal5" data-value="Modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog modal-dialog-slideout" role="document">
     <div class="modal-content">
       <div class="modal-header primary">
@@ -146,7 +146,7 @@
 
 <!-- 6th modal lg right side-->
 
-<div class="modal fade" id="Modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+<div class="modal fade" id="Modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog modal-dialog-slideout modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header primary">
@@ -167,7 +167,7 @@
 
 <!-- 6th modal sm scrollable right side-->
 
-<div class="modal fade" id="Modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+<div class="modal fade" id="Modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog modal-dialog-slideout modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header primary">
@@ -196,12 +196,12 @@
 
 <script>
 
-
+/*
 //loads first modal
 window.onload = function() {
   setTimeout("$('#Modal1').modal('show')", 1000);
 };
-
+*/
 //open up next modal (total of 7)
 
 openNextModal = function(ModalData){
@@ -221,9 +221,8 @@ openNextModal = function(ModalData){
 
 startFullModal = function() {
   $('#Modal7').modal('hide');
-  //modal backdrop didnt dissapear and return focus after close- this fixes that.
-  //$('body').removeClass('modal-open');
-  //$('.modal-backdrop').remove();
+
+  window.location.replace("http://maxnierste.herokuapp.com/projects");
 };
 
 //init popover for first modal
