@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Max Nierste Portfolio</title>
-        <link rel="shortcut icon" href="{{ asset('images/favicon-16x16.png') }}">
+        <link rel="shortcut icon" href="https://maxnierste.herokuapp.com/images/favicon-16x16.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!--include custom css (public/css/main.css)-->
