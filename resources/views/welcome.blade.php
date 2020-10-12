@@ -8,18 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Max Nierste Portfolio</title>
-<link rel="shortcut icon" href="{{ asset('images/favicon-16x16.png') }}">
+        <link rel="shortcut icon" href="{{ asset('images/favicon-16x16.png') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <!--include custom css (public/css/main.css)-->
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bubbles.css') }}" >
         <!-- Styles -->
         <style>
-        .coverImage{
-          background-image:url('{{ asset('/images/space.jpeg') }}');
-          background-size:     cover;
-          background-repeat:   no-repeat;
-          background-position: center center;
-        }
+
         html,
         body {
           background-color: #fff;
@@ -107,11 +103,12 @@
         }
 
 
+
         </style>
     </head>
-    <body class="">
+    <body class="background-wrap">
 
-      <div class="flex-center position-ref full-height">
+      <div class="flex-center position-ref full-height" style="z-index:4;">
           @if (Route::has('login'))
               <div class="top-right links">
                   @auth
@@ -144,6 +141,15 @@
           </div>
 
       </div>
-
+      <div class="bubble x1"></div>
+      <div class="bubble x2"></div>
+      <div class="bubble x3"></div>
+      <div class="bubble x4"></div>
+      <div class="bubble x5"></div>
+      <div class="bubble x6"></div>
+      <div class="bubble x7"></div>
+      <div class="bubble x8"></div>
+      <div class="bubble x9"></div>
+      <div class="bubble x10"></div>
     </body>
 </html>
