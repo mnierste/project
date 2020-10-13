@@ -12,7 +12,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!--include custom css (public/css/main.css)-->
-        <link rel="stylesheet" type="text/css" href="https://maxnierste.herokuapp.com/css/bubbles.css" >
+        <link rel="stylesheet" type="text/css" href="http://localhost:8888/project/public/css/bubbles.css" >
+        <!--<link rel="stylesheet" type="text/css" href="{{ asset('css/bubbles.css') }}" >-->
         <!-- Styles -->
         <style>
 
@@ -62,28 +63,30 @@
           text-decoration: none;
           text-transform: uppercase;
         }
-        .m-t-md {
-          margin-top: 30px;
+        .btn {
+          display: inline-block;
+          font-weight: 400;
+          color: #212529;
+          text-align: center;
+          vertical-align: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          background-color: transparent;
+          border: 1px solid transparent;
+          padding: .375rem .75rem;
+          font-size: 1rem;
+          line-height: 1.5;
+          border-radius: .25rem;
+          transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
         }
-
-        .m-t-sm {
-          margin-top: 15px;
-        }
-
-        .p-t-md {
-          padding-top: 30px;
-        }
-
-        .p-t-sm {
-          padding-top: 15px;
-        }
-
-        .p-b-md {
-          padding-bottom: 30px;
-        }
-
-        .p-b-sm {
-          padding-bottom: 15px;
+        .btn-grad{
+          position: relative;
+          color: #fff;
+          background-image: linear-gradient(360deg, #6303B1, #ff0099);
+          border-color: #fff;
+          z-index: 0;
         }
 
         .m-b-md {
@@ -93,20 +96,9 @@
         .m-b-sm {
           margin-bottom: 15px;
         }
-
-        .m-b-img {
-          margin-bottom: 5px;
-        }
-
-        .m-t-footer {
-          margin-top: 120px;
-        }
-
-
-
         </style>
     </head>
-    <body class="background-wrap">
+    <body id="bubbleArea" class="background-wrap">
 
       <div class="flex-center position-ref full-height" style="z-index:4;">
           @if (Route::has('login'))
@@ -132,24 +124,77 @@
                 Full-stack Developer
               </div>
 
-              <div class="links">
+              <div class="links m-b-md">
                 <a href="{{ url('/about') }}">About Me</a>
                 <a href="{{ url('/projects') }}">Projects</a>
                 <a href="{{ url('/contactme') }}">Contact</a>
               </div>
-
+              <div class="row">
+                <div class="col-12">
+                  <button onclick="bubbles()" class="btn btn-grad">Create Bubble</button>
+                </div>
+              </div>
           </div>
 
-      </div>
-      <div class="bubble x1"></div>
-      <div class="bubble x2"></div>
-      <div class="bubble x3"></div>
-      <div class="bubble x4"></div>
-      <div class="bubble x5"></div>
-      <div class="bubble x6"></div>
-      <div class="bubble x7"></div>
-      <div class="bubble x8"></div>
-      <div class="bubble x9"></div>
-      <div class="bubble x10"></div>
+        </div>
+
+      <script>
+
+      //make a bubble
+
+      function bubbles(){
+        var bubble = document.createElement('div');
+        //make it look like bubble css
+        bubble.className = "bubble";
+        //add animation class
+        var classNum = randomInteger(1, 4);
+        bubble.classList.add("x" + classNum);
+
+        if( classNum == 1 ){
+          var speed = randomInteger(20, 35);
+          var side = randomInteger(2, 3);
+          var size = randomInteger(5, 10) / 10;
+          var placement = randomInteger(-5, 95);
+          var placementV = randomInteger(70, 110);
+        }else if( classNum == 2 ){
+          var speed = randomInteger(30, 40);
+          var side = randomInteger(4, 6);
+          var size = randomInteger(5, 10) / 10;
+          var placement = randomInteger(-5, 95);
+          var placementV = randomInteger(70, 110);
+        }else if( classNum == 3 ){
+          var speed = randomInteger(25, 35);
+          var side = randomInteger(2, 6);
+          var size = randomInteger(5, 10) / 10;
+          var placement = randomInteger(-5, 95);
+          var placementV = randomInteger(70, 110);
+        }else {
+          var speed = randomInteger(35, 40);
+          var side = randomInteger(1, 2);
+          var size = randomInteger(5, 10) / 10;
+          var placement = randomInteger(-5, 95);
+          var placementV = randomInteger(50, 60);
+        }
+
+        bubble.style.setProperty('--animation-time', speed +'s');
+        bubble.style.setProperty('--animation-size', size);
+        bubble.style.setProperty('--animation-left', placement +'%');
+        bubble.style.setProperty('--animation-top', placementV +'vh');
+
+
+        document.getElementById("bubbleArea").appendChild(bubble);
+      }
+
+      //random speed for bubbles
+      function randomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      setInterval(bubbles(), 300);
+      setInterval(bubbles(), 600);
+      setInterval(bubbles(), 900);
+      setInterval(bubbles(), 1200);
+      </script>
+
     </body>
 </html>
