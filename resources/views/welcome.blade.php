@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!--include custom css (public/css/main.css)-->
         <!--<link rel="stylesheet" type="text/css" href="http://localhost:8888/project/public/css/bubbles.css" >-->
-        <link rel="stylesheet" type="text/css" href="https://maxnierste.herokuapp.com/css/bubbles.css" >-->
+        <link rel="stylesheet" type="text/css" href="https://maxnierste.herokuapp.com/css/bubbles.css" >
         <!-- Styles -->
         <style>
 
@@ -193,7 +193,6 @@
       setInterval(bubbles(), 300);
       setInterval(bubbles(), 600);
       setInterval(bubbles(), 900);
-      setInterval(bubbles(), 1200);
       </script>
 
     </body>
