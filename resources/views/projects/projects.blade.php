@@ -167,7 +167,7 @@
           <p class="card-text">
             Pokemon api for Tito
           </p>
-          <a href="{{ url('/pokemonSearch') }}" class="btn btn-primary">View Food Finder</a>
+          <a href="{{ url('/pokemonSearch') }}" class="btn btn-primary">View Pokemon</a>
         </div>
       </div>
 
