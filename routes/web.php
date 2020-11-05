@@ -110,6 +110,11 @@ Route::get('/popups', function () {
     return view('/projects/popups/index');
 });
 
+// ---- Pokemon search ----------------------------------------
+
+Route::get('/pokemonSearch', 'PokemonController@phpsearch');
+Route::post('/pokemonSearch', 'PokemonController@phpsearch');
+
 /*
 |--------------------------------------------------------------------------
 | other projects in progress
