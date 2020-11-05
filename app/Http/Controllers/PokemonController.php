@@ -26,7 +26,7 @@ class PokemonController extends Controller{
     $curlresponse = $curlrequest;
     $pokemon = JSON_decode($curlresponse->getBody());
 
-    return view('/projects/pokemon/pokemonSearchOOP', [
+    return view('/projects/pokemon/pokemonSearch', [
 			'pokemon' => $pokemon
 
 		]);
@@ -42,7 +42,7 @@ class PokemonController extends Controller{
     $curlresponse = $curlrequest;
     $pokemon = JSON_decode($curlresponse->getBody());
 
-    return view('/projects/pokemon/pokemonSearchOOP', [
+    return view('/projects/pokemon/pokemonSearch', [
 			'pokemon' => $pokemon
 
 		]);

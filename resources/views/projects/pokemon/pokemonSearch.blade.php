@@ -297,9 +297,9 @@ body{
 <script>
 function getData(searchName) {
   let query = searchName.toLowerCase();
-  alert(query);
+  //alert(query);
   let url = 'https://pokeapi.co/api/v2/pokemon/' + query;
-  alert(url);
+  //alert(url);
   fetch(url)
     .then(response => {
       if(response.ok) {

@@ -605,6 +605,27 @@ body {
   margin-top: 30px;
 }
 
+.projectpPlaceholder9 {
+  height: 200px;
+  width:200px;
+  margin: auto;
+  border: 2px solid #337ab7;
+  border-radius: 50%;
+  position: relative;
+  background-size: cover;
+  overflow:hidden;
+  background-color:#eee;
+}
+
+.projectpPlaceholder9 img {
+  position: absolute;
+  display: block;
+  height: 120px;
+  width: auto;
+  margin-left: -10px;
+  margin-top: 80px;
+}
+
 #totalChart{
   height:250px !important;
 }

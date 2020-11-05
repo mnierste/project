@@ -122,7 +122,7 @@
   </div>
 
   <div class="row text-center">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <!-- project 4-->
 
       <div class="card1 p-t-sm">
@@ -139,7 +139,7 @@
 
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card1 p-t-sm">
         <div class="projectpPlaceholder2">
           <img class="card-img-top responsive"
@@ -151,6 +151,23 @@
             API search & Map markers display for food near you.
           </p>
           <a href="{{ url('/foodfinder') }}" class="btn btn-primary">View Food Finder</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="card1 p-t-sm">
+        <div class="projectpPlaceholder9">
+          <img class="card-img-top responsive"
+          src="{{ asset('/images/Pokemon.png') }}" alt="food finder">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Pokemon Api</h5>
+          <p class="card-text">
+            Pokemon api for Tito
+          </p>
+          <a href="{{ url('/pokemonSearch') }}" class="btn btn-primary">View Food Finder</a>
         </div>
       </div>
 
