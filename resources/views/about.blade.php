@@ -10,7 +10,7 @@
     </a>
     <h1 style="text-shadow: 2px 2px black;">Welcome to my Website</h1>
     <h3 style="text-shadow: 2px 2px black;">My Name is Max Nierste and I'm a
-      full-stack developer</h3>
+      Software Engineer</h3>
   </div>
 </div>
 
@@ -20,10 +20,11 @@
     <div class="col-md-12 text-center">
       <h3 id="aboutme">About Me</h3>
 
-      <p>I'm a Full-stack developer based in the United States. I have a lot
-        of experience with remote Companies / Teams. When I am not programming,
-        you can find me outside relaxing with family, working on gardening
-        projects, or playing with our pets!</p>
+      <p>I'm a developer based in the United States with a focus on Larvel / Vue.
+        I love working with Integrations, CRMs, and developing internal tools.
+        I have a lot of experience with remote Companies / Teams. When I am
+        not programming, you can find me outside relaxing with family,
+        working on gardening projects, or playing with our pets!</p>
      </div>
      <div class="row m-t-md devicon-size">
        <div class="col-12 text-center">
@@ -83,19 +84,15 @@
           <div class="col-12 text-center">
             <div class="row">
             <!-- Add font awesome icons -->
-              <div class="col-3">
-                <a href="{{ url('https://www.facebook.com/max.nierste') }}"
-                target="_blank" class="fa fa1 fa-facebook"></a>
-              </div>
-              <div class="col-3">
+              <div class="col-4">
                 <a href="{{ url('https://www.linkedin.com/in/max-nierste/')}}"
                 target="_blank"class="fa fa1 fa-linkedin"></a>
               </div>
-              <div class="col-3">
+              <div class="col-4">
                 <a href="{{ url('https://www.instagram.com/madmax428/')}}"
                 target="_blank" class="fa fa1 fa-instagram instagram"></a>
               </div>
-              <div class="col-3">
+              <div class="col-4">
                 <a href="{{ url('https://github.com/mnierste/')}}"
                 target="_blank" class="fa fa1 fa-github github"></a>
               </div>

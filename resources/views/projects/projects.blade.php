@@ -104,7 +104,7 @@
         </div>
       </div>
     </div>
-
+    <!--
     <div class="col-md-4">
       <div class="card1 p-t-sm">
         <div class="projectpPlaceholder8">
@@ -119,12 +119,13 @@
       </div>
 
     </div>
+
   </div>
 
   <div class="row text-center">
     <div class="col-md-4">
       <!-- project 4-->
-
+<!--
       <div class="card1 p-t-sm">
         <div class="projectpPlaceholder4" style="padding-top:60px;">
           <i class="card-img-top responsive devicon-vuejs-plain-wordmark"
@@ -155,7 +156,7 @@
       </div>
 
     </div>
-
+-->
     <div class="col-md-4">
       <div class="card1 p-t-sm">
         <div class="projectpPlaceholder9">
