@@ -111,9 +111,14 @@ Route::get('/popups', function () {
 });
 
 // ---- Pokemon search ----------------------------------------
-
 Route::get('/pokemonSearch', 'PokemonController@phpsearch');
 Route::post('/pokemonSearch', 'PokemonController@phpsearch');
+
+// ---- Store app --------------------------------------------------
+Route::get('/store', 'StorelistController@list');
+Route::post('/storeadditem', 'StorelistController@store');
+Route::get('/storeedit/{id}', 'StorelistController@edit');
+Route::get('/storedelete/{id}', 'StorelistController@delete');
 
 /*
 |--------------------------------------------------------------------------

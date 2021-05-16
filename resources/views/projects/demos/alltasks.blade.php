@@ -328,9 +328,9 @@ var app7 = new Vue({
   data: {
     id:3,
     groceryList: [
-      { id: 0, text: 'Carrots' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Pork' }
+      { id: 0, type: 'Dairy', text: 'Milk' },
+      { id: 1, type: 'Bakery', text: 'Bread' },
+      { id: 2, type: 'Meat', text: 'Chicken' }
     ],
     message: 'add item'
   },
